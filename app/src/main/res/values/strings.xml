@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">JukeBox</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="message_save_success">Sua música foi salva com sucesso</string>
+    <string name="message_save_error">Ops! Não consegui salvar a sua música. Tente novamente mais tarde</string>
+    <string name="message_delete_music_success">Sua música foi deletada com sucesso!</string>
+    <string name="message_delete_music_error">Erro ao deletar a música! Tente novamente mais tarde</string>
+    <string name="message_update_success">Música atualizada com sucesso</string>
+    <string name="error_update_music">Ops!Não conseguimos atualizar sua música. Tente novamente mais tarde</string>
+    <string name="message_error_list_music">Poxa, não consegui encontrar suas músicas , tente novamente mais tarde</string>
+    <string name="acessibility_cadastrar_novo">Cadastrar nova música</string>
+    <string name="message_title_screen_registration">Cadastrar música</string>
+    <string name="title_name">Nome da música</string>
+    <string name="nome_do_autor">Nome do autor</string>
+    <string name="music_description">Descrição da música</string>
+    <string name="title_confirmation_password">Letra</string>
+    <string name="text_button_add_music">Cadastrar</string>
+</resources>

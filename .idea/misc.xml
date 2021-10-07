@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/karin/JukeBox/app/src/main/res/drawable/vector_music_splash.xml" value="0.3527777777777778" />
+        <entry key="..\:/Users/karin/JukeBox/app/src/main/res/layout/activity_main.xml" value="0.17831813576494426" />
+        <entry key="..\:/Users/karin/JukeBox/app/src/main/res/layout/activity_splash.xml" value="0.17147922998986828" />
+        <entry key="..\:/Users/karin/Projetos Android Studio/JukeBox/app/src/main/res/layout/activity_main.xml" value="0.2222222222222222" />
+        <entry key="..\:/Users/karin/Projetos Android Studio/JukeBox/app/src/proprietor/res/drawable/button_shape.xml" value="0.43625" />
+        <entry key="..\:/Users/karin/Projetos Android Studio/JukeBox/app/src/proprietor/res/drawable/drawable.xml" value="0.32314814814814813" />
+        <entry key="..\:/Users/karin/Projetos Android Studio/JukeBox/app/src/proprietor/res/drawable/edit_text_shape.xml" value="0.29083333333333333" />
+        <entry key="..\:/Users/karin/Projetos Android Studio/JukeBox/app/src/proprietor/res/drawable/ic_add.xml" value="0.43625" />
+        <entry key="..\:/Users/karin/Projetos Android Studio/JukeBox/app/src/proprietor/res/drawable/ic_guitar.xml" value="0.29083333333333333" />
+        <entry key="..\:/Users/karin/Projetos Android Studio/JukeBox/app/src/proprietor/res/drawable/item_list_shape.xml" value="0.43625" />
+        <entry key="..\:/Users/karin/Projetos Android Studio/JukeBox/app/src/proprietor/res/drawable/search_shape.xml" value="0.32314814814814813" />
+        <entry key="..\:/Users/karin/Projetos Android Studio/JukeBox/app/src/proprietor/res/layout/activity_establishment.xml" value="0.20843091334894615" />
+        <entry key="..\:/Users/karin/Projetos Android Studio/JukeBox/app/src/proprietor/res/layout/activity_test.xml" value="0.2525" />
+        <entry key="..\:/Users/karin/Projetos Android Studio/JukeBox/app/src/proprietor/res/layout/fragment_establishment.xml" value="0.33" />
+        <entry key="..\:/Users/karin/Projetos Android Studio/JukeBox/app/src/proprietor/res/layout/fragment_register_music.xml" value="0.2222222222222222" />
+        <entry key="..\:/Users/karin/Projetos Android Studio/JukeBox/app/src/proprietor/res/layout/fragment_register_music_.xml" value="0.2222222222222222" />
+        <entry key="..\:/Users/karin/Projetos Android Studio/JukeBox/app/src/proprietor/res/layout/fragment_register_music_fragment.xml" value="0.2222222222222222" />
+        <entry key="..\:/Users/karin/Projetos Android Studio/JukeBox/app/src/proprietor/res/layout/item_list_music.xml" value="0.25" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
