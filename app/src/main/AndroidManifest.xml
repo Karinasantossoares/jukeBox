@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JukeBox">
         <activity android:name=".client.ClientActivity" />
-        <activity android:name=".ui.SplashActivity" />
+        <activity android:name=".SplashActivity" />
         <activity
             android:name=".establishment.ui.activity.EstablishmentActivity"
             android:exported="true"

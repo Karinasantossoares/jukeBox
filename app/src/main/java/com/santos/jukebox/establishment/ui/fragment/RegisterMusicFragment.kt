@@ -36,11 +36,9 @@ class RegisterMusicFragment : Fragment() {
         binding.btnRegister.setOnClickListener {
             val nameMusic = binding.etName.text.toString()
             val author = binding.etAuthor.text.toString()
-            val description = binding.etDescription.text.toString()
             val music = RegisterMusicEstablishment(
                 title = nameMusic,
-                author = author,
-                description = description
+                author = author
             )
             viewModelRegister.saveNewMusic(music)
         }
@@ -52,12 +50,12 @@ class RegisterMusicFragment : Fragment() {
             binding.pbLoadRegister.isVisible = it
         })
 
-        viewModelRegister.errorLiveData.observe(viewLifecycleOwner, Observer {
-            Toast.makeText(requireContext(), it, Toast.LENGTH_LONG).show()
+        viewModelRegister.successLiveData.observe(viewLifecycleOwner, Observer {
+            Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
         })
 
         viewModelRegister.errorLiveData.observe(viewLifecycleOwner, Observer {
-            Toast.makeText(requireContext(), it, Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
         })
     }
 

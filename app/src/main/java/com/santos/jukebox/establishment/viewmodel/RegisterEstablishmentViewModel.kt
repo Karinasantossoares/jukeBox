@@ -20,9 +20,9 @@ internal class RegisterEstablishmentViewModel(
     private var _errorLiveData = MutableLiveData<String>()
     val errorLiveData: LiveData<String>
         get() = _errorLiveData
-    private var _messageSuccessLiveData_ = MutableLiveData<String>()
-    val successLiveData_: LiveData<String>
-        get() = _messageSuccessLiveData_
+    private var _messageSuccessLiveData = MutableLiveData<String>()
+    val successLiveData: LiveData<String>
+        get() = _messageSuccessLiveData
     private var _loadLiveData = MutableLiveData<Boolean>()
     val loadResult: LiveData<Boolean>
         get() = _loadLiveData
@@ -33,7 +33,7 @@ internal class RegisterEstablishmentViewModel(
         useCaseRegister.saveMusic(music = music,
             success = {
                 _loadLiveData.value = false
-                _messageSuccessLiveData_.value = context.getString(R.string.message_save_success)
+                _messageSuccessLiveData.value = context.getString(R.string.message_save_success)
             },
             error = {
                 _loadLiveData.value = false
@@ -47,7 +47,7 @@ internal class RegisterEstablishmentViewModel(
             useCaseRegister.deleteMusic(idMusic = it,
                 success = {
                     _loadLiveData.value = false
-                    _messageSuccessLiveData_.value =
+                    _messageSuccessLiveData.value =
                         context.getString(R.string.message_delete_music_success)
                 },
                 error = {
@@ -63,7 +63,7 @@ internal class RegisterEstablishmentViewModel(
             useCaseRegister.updateMusic(idMusic = it,
                 success = {
                     _loadLiveData.value = false
-                    _messageSuccessLiveData_.value =
+                    _messageSuccessLiveData.value =
                         context.getString(R.string.message_update_success)
                 },
                 error = {

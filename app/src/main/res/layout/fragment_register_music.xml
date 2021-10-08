@@ -17,17 +17,26 @@
             <View
                 android:id="@+id/view_toolbar"
                 android:layout_width="0dp"
-                android:layout_height="179dp"
+                android:layout_height="0dp"
                 android:background="@drawable/search_shape"
+                app:layout_constraintBottom_toBottomOf="@+id/guideline"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.5" />
+
+            <View
+                android:id="@+id/guideline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/cardView"
+                app:layout_constraintTop_toTopOf="@+id/cardView" />
 
             <TextView
                 android:id="@+id/tv_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="60dp"
                 android:text="@string/message_title_screen_registration"
                 android:textColor="@color/white"
                 android:textSize="35sp"
@@ -37,14 +46,15 @@
 
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cd_user_resgistration"
+                android:id="@+id/cardView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="30dp"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="10dp"
                 app:cardUseCompatPadding="true"
-                app:contentPaddingBottom="30dp"
+                app:contentPaddingBottom="50dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_title">
@@ -55,94 +65,63 @@
                     android:layout_height="wrap_content"
                     android:background="@color/white">
 
-                    <TextView
-                        android:id="@+id/tv_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="15dp"
-                        android:layout_marginTop="10dp"
-                        android:text="@string/title_name"
-                        android:textColor="@color/black"
-                        android:textSize="16sp"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <androidx.appcompat.widget.AppCompatEditText
-                        android:id="@+id/et_name"
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/text_input_layout_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="15dp"
-                        android:layout_marginVertical="10dp"
-                        android:background="@drawable/edit_text_shape"
-                        android:inputType="textEmailAddress"
-                        android:maxLines="1"
-                        android:minLines="1"
-                        android:padding="20dp"
-                        android:textSize="16sp"
-                        app:layout_constraintTop_toBottomOf="@id/tv_name" />
+                        android:hint="@string/title_name"
+                        android:layout_marginTop="24dp"
+                        app:layout_constraintTop_toTopOf="parent">
 
-                    <TextView
-                        android:id="@+id/tv_author"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="15dp"
-                        android:layout_marginTop="10dp"
-                        android:text="@string/music_author"
-                        android:textColor="@color/black"
-                        android:textSize="16sp"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/et_name" />
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="15dp"
+                            android:layout_marginVertical="10dp"
+                            android:background="@drawable/edit_text_shape"
+                            android:inputType="textEmailAddress"
+                            android:maxLines="1"
+                            android:minLines="1"
+                            android:padding="20dp"
+                            android:textSize="16sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
 
-                    <androidx.appcompat.widget.AppCompatEditText
-                        android:id="@+id/et_author"
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/text_input_layout_author"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="15dp"
-                        android:layout_marginVertical="10dp"
-                        android:background="@drawable/edit_text_shape"
-                        android:inputType="text"
-                        android:padding="20dp"
-                        android:textSize="16sp"
-                        app:layout_constraintTop_toBottomOf="@id/tv_author" />
+                        android:hint="@string/title_author"
+                        android:layout_marginTop="16dp"
+                        app:layout_constraintTop_toBottomOf="@id/text_input_layout_name">
 
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_author"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="15dp"
+                            android:layout_marginVertical="10dp"
+                            android:layout_marginBottom="16dp"
+                            android:background="@drawable/edit_text_shape"
+                            android:inputType="text"
+                            android:padding="20dp"
+                            android:textSize="16sp" />
 
-                    <TextView
-                        android:id="@+id/tv_description"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="15dp"
-                        android:layout_marginTop="10dp"
-                        android:text="@string/title_confirmation_password"
-                        android:textColor="@color/black"
-                        android:textSize="16sp"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/et_author" />
-
-
-                    <androidx.appcompat.widget.AppCompatEditText
-                        android:id="@+id/et_description"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="15dp"
-                        android:layout_marginVertical="10dp"
-                        android:background="@drawable/edit_text_shape"
-                        android:inputType="text"
-                        android:padding="10dp"
-                        android:textSize="16sp"
-                        app:layout_constraintTop_toBottomOf="@id/tv_description"
-                        tools:layout_editor_absoluteX="15dp" />
+                    </com.google.android.material.textfield.TextInputLayout>
 
                     <ProgressBar
                         android:id="@+id/pb_load_register"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_marginHorizontal="15dp"
-                        android:layout_marginVertical="30dp"
+                        android:layout_marginVertical="50dp"
+                        android:background="@color/black"
                         android:visibility="gone"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/et_description"
+                        app:layout_constraintTop_toBottomOf="@id/text_input_layout_author"
                         app:layout_constraintVertical_bias="1"
                         tools:visibility="visible" />
 
@@ -151,19 +130,21 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_register"
-                android:layout_width="150dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="20dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
                 android:background="@drawable/button_shape"
                 android:text="@string/text_button_add_music"
                 android:textColor="@color/white"
                 android:textSize="14sp"
+                app:layout_constraintTop_toBottomOf="@id/cardView"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginBottom="16dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cd_user_resgistration"
-                app:layout_constraintVertical_bias="1" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintVertical_bias="1"
+                app:layout_constraintStart_toStartOf="parent"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </layout>
