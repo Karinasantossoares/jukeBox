@@ -20,7 +20,7 @@
     <string name="message_title_screen_registration">Cadastrar música</string>
     <string name="title_name">Nome da música</string>
     <string name="nome_do_autor">Nome do autor</string>
-    <string name="music_description">Descrição da música</string>
+    <string name="music_author">Autor</string>
     <string name="title_confirmation_password">Letra</string>
     <string name="text_button_add_music">Cadastrar</string>
 </resources>

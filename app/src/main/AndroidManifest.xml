@@ -10,8 +10,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JukeBox">
+        <activity android:name=".client.ClientActivity" />
+        <activity android:name=".ui.SplashActivity" />
         <activity
-            android:name="com.santos.establishment.ui.activity.EstablishmentActivity"
+            android:name=".establishment.ui.activity.EstablishmentActivity"
             android:exported="true"
             android:theme="@style/Theme.JukeBox.NoActionBar">
             <intent-filter>

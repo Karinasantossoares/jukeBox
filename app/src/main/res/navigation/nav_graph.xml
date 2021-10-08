@@ -2,6 +2,12 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph">
+    android:id="@+id/navigation_training"
+    app:startDestination="@id/registerMusicFragment">
 
+    <fragment
+        android:id="@+id/registerMusicFragment"
+        android:name="com.santos.jukebox.establishment.ui.fragment.RegisterMusicFragment"
+        android:label="RegisterMusicFragment"
+        tools:layout="@layout/fragment_register_music" />
 </navigation>

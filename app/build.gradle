@@ -21,22 +21,22 @@ android {
         dataBinding true
     }
 
+    flavorDimensions "default"
+    productFlavors {
+        proprietor {
+            manifestPlaceholders variant: "proprietor"
+        }
+
+        client {
+            manifestPlaceholders variant: "client"
+        }
+
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-
-        flavorDimensions "default"
-        productFlavors {
-            proprietor {
-                manifestPlaceholders variant: "proprietor"
-            }
-
-            client {
-                manifestPlaceholders variant: "client"
-            }
-
         }
     }
     compileOptions {
@@ -82,6 +82,7 @@ dependencies {
     implementation "com.airbnb.android:lottie:3.4.0"
     implementation 'com.google.firebase:firebase-auth-ktx:21.0.1'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

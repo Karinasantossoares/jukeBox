@@ -6,7 +6,10 @@ import android.os.Handler
 import android.os.Looper
 import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
+import com.santos.jukebox.BuildConfig
 import com.santos.jukebox.R
+import com.santos.jukebox.client.ClientActivity
+import com.santos.jukebox.establishment.ui.activity.EstablishmentActivity
 
 
 class SplashActivity : AppCompatActivity() {
@@ -16,9 +19,14 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
-        }, 3000)
+            if (BuildConfig.FLAVOR == "client") {
+                startActivity(Intent(this, ClientActivity::class.java))
+                finish()
+            } else {
+                startActivity(Intent(this, EstablishmentActivity::class.java))
+                finish()
+            }
+        }, 1000)
     }
 
 }
