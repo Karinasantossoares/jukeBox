@@ -69,8 +69,8 @@
                         android:id="@+id/text_input_layout_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/title_name"
                         android:layout_marginTop="24dp"
+                        android:hint="@string/title_name"
                         app:layout_constraintTop_toTopOf="parent">
 
                         <com.google.android.material.textfield.TextInputEditText
@@ -92,8 +92,8 @@
                         android:id="@+id/text_input_layout_author"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/title_author"
                         android:layout_marginTop="16dp"
+                        android:hint="@string/title_author"
                         app:layout_constraintTop_toBottomOf="@id/text_input_layout_name">
 
                         <com.google.android.material.textfield.TextInputEditText
@@ -113,12 +113,12 @@
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recycleTypesMusic"
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        tools:itemCount=""
-                        app:layout_constraintTop_toBottomOf="@id/text_input_layout_author"
-                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        android:layout_height="wrap_content"/>
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/text_input_layout_author"
+                        tools:listitem="@layout/item_type_music" />
 
                     <ProgressBar
                         android:id="@+id/pb_load_register"
@@ -132,7 +132,6 @@
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/text_input_layout_author"
-                        app:layout_constraintVertical_bias="1"
                         tools:visibility="visible" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -150,11 +149,11 @@
                 android:text="@string/text_button_add_music"
                 android:textColor="@color/white"
                 android:textSize="14sp"
-                app:layout_constraintTop_toBottomOf="@id/cardView"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintVertical_bias="1"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardView"
+                app:layout_constraintVertical_bias="1" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </layout>
