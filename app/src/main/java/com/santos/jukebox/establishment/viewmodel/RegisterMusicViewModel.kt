@@ -5,32 +5,34 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.santos.jukebox.establishment.data.RegisterMusicEstablishment
-import com.santos.jukebox.establishment.useCase.RegisterMusicUseCase
+import com.santos.jukebox.establishment.useCase.MusicUseCase
 import com.santos.jukebox.R
 import com.santos.jukebox.establishment.data.EventRegisterMusic
 import com.santos.jukebox.establishment.data.StateRegisterMusic
 import com.santos.jukebox.establishment.useCase.RegisterTypeMusicUseCase
 
 internal class RegisterMusicViewModel(
-    private val useCaseMusic: RegisterMusicUseCase,
+    private val useCaseMusic: MusicUseCase,
     private val useCaseTypeMusic: RegisterTypeMusicUseCase,
     private val context: Context
 ) : ViewModel() {
 
-    private var _stateLiveData = MutableLiveData(StateRegisterMusic())
+    private var _stateLiveData = MutableLiveData<StateRegisterMusic>()
     val stateLiveData: LiveData<StateRegisterMusic>
         get() = _stateLiveData
 
-    private var _actionLiveData = MutableLiveData(EventRegisterMusic())
+    private var _actionLiveData = MutableLiveData<EventRegisterMusic>()
     val actionLiveData: LiveData<EventRegisterMusic>
         get() = _actionLiveData
 
+    private var musicToDelete: String? = null
+
     init {
+        _stateLiveData.value = StateRegisterMusic().showLoadingTypeMusics(true)
         getAllTypeMusics()
     }
 
     private fun getAllTypeMusics() {
-        _stateLiveData.value = _stateLiveData.value?.showLoadingTypeMusics(true)
         useCaseTypeMusic.getAllTypeMusics(
             success = {
                 _stateLiveData.value = _stateLiveData.value?.showLoadingTypeMusics(false)
@@ -56,8 +58,9 @@ internal class RegisterMusicViewModel(
             },
             error = {
                 _stateLiveData.value = _stateLiveData.value?.showLoadingMusics(false)
-                _actionLiveData.value =
-                    _actionLiveData.value?.showMessage(context.getString(R.string.message_save_error))
+                it.localizedMessage?.let { messageError ->
+                    _actionLiveData.value = _actionLiveData.value?.showMessage(messageError)
+                }
             })
     }
 
@@ -77,6 +80,32 @@ internal class RegisterMusicViewModel(
                 }
             )
         }
+    }
+
+    fun deleteTypeMusic() {
+        _actionLiveData.value = EventRegisterMusic.HideDialog
+        _stateLiveData.value = _stateLiveData.value?.showLoadingTypeMusics(true)
+        musicToDelete?.let { typeDelete ->
+            useCaseTypeMusic.deleteTypeMusic(
+                typeDelete = typeDelete,
+                success = {
+                    _stateLiveData.value = _stateLiveData.value?.showLoadingTypeMusics(false)
+                },
+                error = {
+                    _stateLiveData.value = _stateLiveData.value?.showLoadingTypeMusics(false)
+                    it.localizedMessage?.let { errorMessage ->
+                        _actionLiveData.value = EventRegisterMusic.ShowMessage(errorMessage)
+                    }
+                })
+        }
+    }
+
+    fun setOnLongClick(music: String) {
+        musicToDelete = music
+        _actionLiveData.value = EventRegisterMusic.ShowDialogDialog(
+            context.getString(R.string.title_toolbar_delete_type_music),
+            context.getString(R.string.message_toolbar_delete_type_music, music)
+        )
     }
 
     fun setTypeMusics(typeMusics: List<String>) {

@@ -1,17 +1,32 @@
 package com.santos.jukebox.establishment.useCase
 
+import android.content.Context
+import com.santos.jukebox.R
 import com.santos.jukebox.establishment.data.RegisterMusicEstablishment
 import com.santos.jukebox.establishment.repository.MusicRepository
 
-internal class RegisterMusicUseCase(
-    private val repository: MusicRepository
+internal class MusicUseCase(
+    private val repository: MusicRepository,
+    private val context: Context
 ) {
 
     fun saveMusic(
         success: () -> Unit,
         error: (Exception) -> Unit,
         music: RegisterMusicEstablishment
-    ) = repository.saveMusic(success, error, music)
+    ) {
+        when {
+            music.title.isEmpty() -> {
+                error.invoke(Exception(context.getString(R.string.title_not_empty)))
+            }
+            music.types.isEmpty() -> {
+                error.invoke(Exception(context.getString(R.string.types_music_empty)))
+            }
+            else -> {
+                return repository.saveMusic(success, error, music)
+            }
+        }
+    }
 
     fun updateMusic(
         idMusic: String,
@@ -25,7 +40,7 @@ internal class RegisterMusicUseCase(
         error: (Exception) -> Unit
     ) = repository.deleteMusic(idMusic, success, error)
 
-    fun findMusic(
+    fun findAll(
         success: (List<RegisterMusicEstablishment>) -> Unit,
         error: (Exception) -> Unit
     ) = repository.findMusics(success, error)

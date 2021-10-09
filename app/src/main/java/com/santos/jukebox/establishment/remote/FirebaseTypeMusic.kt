@@ -16,7 +16,7 @@ internal class FirebaseTypeMusic(
         error: (Exception) -> Unit,
         music: String
     ) {
-        database.child(TYPE_MUSIC)
+        database
             .child(music)
             .setValue(music)
             .addOnCompleteListener {

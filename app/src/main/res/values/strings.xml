@@ -18,12 +18,20 @@
     <string name="message_error_list_music">Poxa, não consegui encontrar suas músicas , tente novamente mais tarde</string>
     <string name="acessibility_cadastrar_novo">Cadastrar nova música</string>
     <string name="message_title_screen_registration">Cadastrar música</string>
+    <string name="message_title_screen_registration_type">Cadastrar estilo\nmusical</string>
     <string name="title_name">Nome da música</string>
     <string name="title_author">Nome do cantor (opicional)</string>
     <string name="music_author">Autor</string>
     <string name="title_confirmation_password">Letra</string>
     <string name="text_button_add_music">Cadastrar</string>
-    <string name="new_type_music">Novo tipo musical</string>
+    <string name="new_type_music">Adicionar novo \nestilo musical</string>
     <string name="error_message_always_type">Tipo musical já existente, por favor, escolha outro nome</string>
     <string name="error_message_characteres">Musica deve conter ao menos um caractere</string>
+    <string name="error_default_name_characteres">Caracteres inválidos no nome</string>
+    <string name="title_not_empty">Título da música não pode ser vazio</string>
+    <string name="types_music_empty">Para cadastrar a música é necessário ter pelo menos um estilo.</string>
+    <string name="title_type_music">Ex: Sertanejo</string>
+    <string name="title_toolbar_delete_type_music">Alerta</string>
+    <string name="message_toolbar_delete_type_music">Tem certeza que deseja deletar o estilo musical %1$s?\nas musicas cadastradas nesse estilo não serão deletadas.</string>
+    <string name="yes">Sim</string>
 </resources>
