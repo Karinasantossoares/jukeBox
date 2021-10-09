@@ -5,15 +5,15 @@
     <application
         android:name=".BaseApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="App ${variant}"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:icon="@drawable/ic_launcher_background"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/ic_launcher_background"
         android:supportsRtl="true"
         android:theme="@style/Theme.JukeBox">
         <activity android:name=".client.ui.activity.ClientActivity" />
-        <activity android:name=".SplashActivity" />
+        <activity android:name=".establishment.ui.activity.EstablishmentActivity" />
         <activity
-            android:name=".establishment.ui.activity.EstablishmentActivity"
+            android:name=".SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.JukeBox.NoActionBar">
             <intent-filter>

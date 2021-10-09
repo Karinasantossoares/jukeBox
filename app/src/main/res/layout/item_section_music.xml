@@ -7,16 +7,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <View
+            android:background="#8F8F8F"
+            app:layout_constraintTop_toTopOf="@+id/titleTypeMusic"
+            app:layout_constraintBottom_toBottomOf="@+id/titleTypeMusic"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"/>
+
         <TextView
             android:id="@+id/titleTypeMusic"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:paddingHorizontal="8dp"
+            android:layout_marginStart="20dp"
+            android:background="@color/white"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:textSize="24sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Sertanejo" />
