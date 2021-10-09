@@ -23,4 +23,8 @@
     <string name="music_author">Autor</string>
     <string name="title_confirmation_password">Letra</string>
     <string name="text_button_add_music">Cadastrar</string>
+    <string name="text_splash_activity">Ity Teiexeira Acústico</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text_add_queue">Pedir</string>
 </resources>
