@@ -1,4 +1,6 @@
-package com.santos.jukebox.establishment.data
+package com.santos.jukebox.establishment.ui.state
+
+import com.santos.jukebox.establishment.data.RegisterMusicEstablishment
 
 data class StateRegisterMusic(
     var newMusic: RegisterMusicEstablishment = RegisterMusicEstablishment(

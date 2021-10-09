@@ -1,6 +1,6 @@
-package com.santos.jukebox.establishment.data
+package com.santos.jukebox.client.ui.action
 
-data class EventRegisterMusic(
+data class EventClient(
     var message: String = "",
 ) {
     fun showMessage(message: String) = copy(

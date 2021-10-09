@@ -7,7 +7,7 @@ import com.santos.jukebox.R
 import com.santos.jukebox.client.data.MusicResponse
 import com.santos.jukebox.client.ui.adapter.viewholder.SectionViewHolder
 
-class SectionMusicAdapter:
+class SectionMusicAdapter(val listener: () -> Unit) :
     RecyclerView.Adapter<SectionViewHolder>() {
 
     var listMusic = emptyList<MusicResponse>()
@@ -18,7 +18,8 @@ class SectionMusicAdapter:
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SectionViewHolder {
         return SectionViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.item_section_music, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.item_section_music, parent, false),
+            listener = listener
         )
     }
 

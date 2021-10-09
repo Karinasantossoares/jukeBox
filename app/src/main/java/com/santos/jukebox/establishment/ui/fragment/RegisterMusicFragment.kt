@@ -7,16 +7,18 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import com.santos.jukebox.client.viewmodel.ClientViewModel
 import com.santos.jukebox.establishment.viewmodel.RegisterMusicViewModel
 import com.santos.jukebox.databinding.FragmentRegisterMusicBinding
 import com.santos.jukebox.establishment.data.RegisterMusicEstablishment
 import com.santos.jukebox.establishment.ui.adapter.TypeMusicAdapter
 import org.koin.android.viewmodel.ext.android.sharedViewModel
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class RegisterMusicFragment : Fragment() {
     private lateinit var binding: FragmentRegisterMusicBinding
     private val viewModelRegister:
-            RegisterMusicViewModel by sharedViewModel()
+            RegisterMusicViewModel by viewModel()
 
     private val adapter by lazy { TypeMusicAdapter() }
 

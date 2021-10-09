@@ -22,7 +22,7 @@
             tools:text="Sertanejo" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerSectionMusic"
+            android:id="@+id/recyclerCategoryMusic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"

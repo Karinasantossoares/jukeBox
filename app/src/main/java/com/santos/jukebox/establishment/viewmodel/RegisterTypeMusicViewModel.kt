@@ -1,13 +1,9 @@
 package com.santos.jukebox.establishment.viewmodel
 
-import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.santos.jukebox.establishment.data.RegisterMusicEstablishment
-import com.santos.jukebox.establishment.useCase.RegisterMusicUseCase
-import com.santos.jukebox.R
-import com.santos.jukebox.establishment.data.StateTypeMusic
+import com.santos.jukebox.establishment.ui.state.StateTypeMusic
 import com.santos.jukebox.establishment.useCase.RegisterTypeMusicUseCase
 
 internal class RegisterTypeMusicViewModel(
@@ -23,7 +19,7 @@ internal class RegisterTypeMusicViewModel(
     }
 
     fun saveNewMusic(typeMusic: String) {
-        notifyLiveData(StateTypeMusic.Loding)
+        notifyLiveData(StateTypeMusic.Loading)
         useCaseRegister.saveTypeMusic(
             typeMusic = typeMusic,
             success = {
@@ -37,7 +33,7 @@ internal class RegisterTypeMusicViewModel(
     }
 
     fun deleteTypeMusic(typeMusic: String) {
-        notifyLiveData(StateTypeMusic.Loding)
+        notifyLiveData(StateTypeMusic.Loading)
         useCaseRegister.deleteTypeMusic(
             typeMusic = typeMusic,
             success = {
@@ -50,7 +46,7 @@ internal class RegisterTypeMusicViewModel(
             })
     }
     fun getAllTypesMusic() {
-        notifyLiveData(StateTypeMusic.Loding)
+        notifyLiveData(StateTypeMusic.Loading)
         useCaseRegister.getAllTypeMusics(
             success = {
                 notifyLiveData(StateTypeMusic.Success(it))

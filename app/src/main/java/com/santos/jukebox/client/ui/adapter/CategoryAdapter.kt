@@ -7,7 +7,9 @@ import com.santos.jukebox.R
 import com.santos.jukebox.client.data.Music
 import com.santos.jukebox.client.ui.adapter.viewholder.CategoryViewHolder
 
-class CategoryAdapter : RecyclerView.Adapter<CategoryViewHolder>() {
+class CategoryAdapter(
+    val listener: () -> Unit
+) : RecyclerView.Adapter<CategoryViewHolder>() {
 
     var listNameMusic = emptyList<Music>()
         set(value) {
@@ -17,7 +19,9 @@ class CategoryAdapter : RecyclerView.Adapter<CategoryViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
         return CategoryViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.item_category_music, parent, false)
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.item_category_music, parent, false),
+            listener
         )
     }
 
