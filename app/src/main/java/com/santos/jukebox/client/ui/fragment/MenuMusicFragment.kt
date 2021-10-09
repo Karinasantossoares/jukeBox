@@ -5,7 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.example.register_android.ui.component.MusicBottomDialogFragment
+import com.santos.jukebox.R
 import com.santos.jukebox.client.ui.adapter.SectionMusicAdapter
 import com.santos.jukebox.client.ui.state.StateClient
 import com.santos.jukebox.client.viewmodel.ClientViewModel
@@ -41,7 +45,13 @@ class MenuMusicFragment : Fragment() {
                 }
                 is StateClient.SuccessListMusic -> {
                     val adapter = SectionMusicAdapter(
-                        listener = {}
+                        listener = { music ->
+                            val bundle = bundleOf(MusicBottomDialogFragment.MUSIC to music)
+                            findNavController().navigate(
+                                R.id.toBottomSheatDialog,
+                                bundle
+                            )
+                        }
                     ).apply {
                         listMusic = it.listMusic
                     }

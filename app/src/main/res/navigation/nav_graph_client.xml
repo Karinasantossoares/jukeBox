@@ -9,5 +9,13 @@
         android:id="@+id/menuFragment"
         android:name="com.santos.jukebox.client.ui.fragment.MenuMusicFragment"
         android:label="MenuMusicFragment"
-        tools:layout="@layout/fragment_menu_music" />
+        tools:layout="@layout/fragment_menu_music" >
+        <action
+            android:id="@+id/toBottomSheatDialog"
+            app:destination="@id/bottom_sheat_dialog" />
+    </fragment>
+    <dialog
+        android:id="@+id/bottom_sheat_dialog"
+        android:name="com.example.register_android.ui.component.MusicBottomDialogFragment"
+        tools:layout="@layout/fragment_bottom_dialog_music"/>
 </navigation>

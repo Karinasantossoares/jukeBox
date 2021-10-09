@@ -38,14 +38,17 @@ class FirebaseClient(
         error: (Exception) -> Unit,
         music: Music
     ) {
-        database.child(QUEUE_MUSIC)
-            .setValue(music)
-            .addOnCompleteListener {
-                success.invoke()
-            }
-            .addOnFailureListener {
-                error.invoke(it)
-            }
+        music.id?.let { id ->
+            database
+                .child(id)
+                .setValue(music)
+                .addOnCompleteListener {
+                    success.invoke()
+                }
+                .addOnFailureListener {
+                    error.invoke(it)
+                }
+        }
     }
 
     companion object {
