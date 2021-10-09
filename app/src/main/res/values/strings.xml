@@ -34,4 +34,9 @@
     <string name="title_toolbar_delete_type_music">Alerta</string>
     <string name="message_toolbar_delete_type_music">Tem certeza que deseja deletar o estilo musical %1$s?\nas musicas cadastradas nesse estilo não serão deletadas.</string>
     <string name="yes">Sim</string>
+    <string name="text_splash_activity">Ity Teiexeira Acústico</string>
+    <string name="text_add_queue">Pedir</string>
+    <string name="error_list_music_client">Erro ao tentar listar músicas disponíveis</string>
+    <string name="message_success_add_queue_client">Oba! Sua música já está na fila</string>
+    <string name="message_error_add_queue_client">Poxa, não conseguimos adicionar sua música a fila. Tente novamente mais tarde</string>
 </resources>

@@ -8,13 +8,9 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.santos.jukebox.databinding.FragmentRegisterMusicBinding
 import com.santos.jukebox.databinding.FragmentRegisterTypeMusicBinding
-import com.santos.jukebox.establishment.data.RegisterMusicEstablishment
-import com.santos.jukebox.establishment.data.StateTypeMusic
-import com.santos.jukebox.establishment.ui.adapter.TypeMusicAdapter
+import com.santos.jukebox.establishment.ui.state.StateTypeMusic
 import com.santos.jukebox.establishment.viewmodel.RegisterTypeMusicViewModel
-import org.koin.android.viewmodel.ext.android.sharedViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class RegisterTypeMusicFragment : Fragment() {
@@ -50,7 +46,7 @@ class RegisterTypeMusicFragment : Fragment() {
                     binding.pbLoadRegister.isVisible = false
                     findNavController().popBackStack()
                 }
-                StateTypeMusic.Loding -> {
+                StateTypeMusic.Loading -> {
                     binding.pbLoadRegister.isVisible = true
                 }
                 is StateTypeMusic.ShowMessage -> {
@@ -59,6 +55,4 @@ class RegisterTypeMusicFragment : Fragment() {
             }
         })
     }
-
-
 }

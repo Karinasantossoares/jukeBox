@@ -9,20 +9,18 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.santos.jukebox.establishment.viewmodel.RegisterMusicViewModel
-import com.santos.jukebox.databinding.FragmentRegisterMusicBinding
-import com.santos.jukebox.establishment.data.EventRegisterMusic
-import com.santos.jukebox.establishment.data.RegisterMusicEstablishment
-import com.santos.jukebox.establishment.ui.adapter.TypeMusicAdapter
-import org.koin.android.viewmodel.ext.android.sharedViewModel
-import android.content.DialogInterface
 import com.santos.jukebox.R
-
+import com.santos.jukebox.databinding.FragmentRegisterMusicBinding
+import com.santos.jukebox.establishment.data.RegisterMusicEstablishment
+import com.santos.jukebox.establishment.ui.action.EventRegisterMusic
+import com.santos.jukebox.establishment.ui.adapter.TypeMusicAdapter
+import com.santos.jukebox.establishment.viewmodel.RegisterMusicViewModel
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class RegisterMusicFragment : Fragment() {
     private lateinit var binding: FragmentRegisterMusicBinding
     private val viewModelRegister:
-            RegisterMusicViewModel by sharedViewModel()
+            RegisterMusicViewModel by viewModel()
 
     private val adapter by lazy { TypeMusicAdapter() }
     private val builder by lazy { AlertDialog.Builder(requireContext()) }

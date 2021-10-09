@@ -7,8 +7,8 @@ import androidx.lifecycle.ViewModel
 import com.santos.jukebox.establishment.data.RegisterMusicEstablishment
 import com.santos.jukebox.establishment.useCase.MusicUseCase
 import com.santos.jukebox.R
-import com.santos.jukebox.establishment.data.EventRegisterMusic
-import com.santos.jukebox.establishment.data.StateRegisterMusic
+import com.santos.jukebox.establishment.ui.action.EventRegisterMusic
+import com.santos.jukebox.establishment.ui.state.StateRegisterMusic
 import com.santos.jukebox.establishment.useCase.RegisterTypeMusicUseCase
 
 internal class RegisterMusicViewModel(

@@ -1,4 +1,4 @@
-package com.santos.jukebox.client
+package com.santos.jukebox.client.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

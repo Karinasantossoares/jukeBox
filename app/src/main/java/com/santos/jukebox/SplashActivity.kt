@@ -6,7 +6,7 @@ import android.os.Handler
 import android.os.Looper
 import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
-import com.santos.jukebox.client.ClientActivity
+import com.santos.jukebox.client.ui.activity.ClientActivity
 import com.santos.jukebox.establishment.ui.activity.EstablishmentActivity
 
 

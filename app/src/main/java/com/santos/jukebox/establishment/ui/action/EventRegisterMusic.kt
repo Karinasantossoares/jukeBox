@@ -1,4 +1,4 @@
-package com.santos.jukebox.establishment.data
+package com.santos.jukebox.establishment.ui.action
 
 sealed class EventRegisterMusic {
     data class ShowMessage(var message: String = "") : EventRegisterMusic()

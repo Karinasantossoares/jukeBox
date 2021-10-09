@@ -3,7 +3,7 @@ package com.santos.jukebox.establishment.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.santos.jukebox.establishment.data.StateTypeMusic
+import com.santos.jukebox.establishment.ui.state.StateTypeMusic
 import com.santos.jukebox.establishment.useCase.RegisterTypeMusicUseCase
 
 internal class RegisterTypeMusicViewModel(
@@ -19,7 +19,7 @@ internal class RegisterTypeMusicViewModel(
     }
 
     fun saveNewTypeMusic(typeMusic: String) {
-        notifyLiveData(StateTypeMusic.Loding)
+        notifyLiveData(StateTypeMusic.Loading)
         useCaseRegister.saveTypeMusic(
             typeMusic = typeMusic,
             success = {
