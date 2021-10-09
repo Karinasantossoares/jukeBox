@@ -14,7 +14,7 @@ class CategoryViewHolder(
 
     fun bind(music: Music) {
         binding.textNameMusic.text = music.title
-        binding.buttonAddQueue.setOnClickListener {
+        binding.cardView.setOnClickListener {
             listener.invoke()
         }
     }

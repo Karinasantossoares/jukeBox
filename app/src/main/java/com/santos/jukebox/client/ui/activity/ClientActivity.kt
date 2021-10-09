@@ -1,12 +1,11 @@
 package com.santos.jukebox.client.ui.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.santos.jukebox.R
 
-class ClientActivity : AppCompatActivity() {
+class ClientActivity : AppCompatActivity(R.layout.activity_client) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_client)
     }
 }

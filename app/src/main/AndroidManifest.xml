@@ -6,16 +6,15 @@
         android:name=".BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="App ${variant}"
+        android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JukeBox">
+        <activity android:name=".establishment.ui.activity.EstablishmentActivity" />
         <activity android:name=".client.ui.activity.ClientActivity" />
-        <activity android:name=".SplashActivity" />
         <activity
-            android:name=".establishment.ui.activity.EstablishmentActivity"
-            android:exported="true"
-            android:theme="@style/Theme.JukeBox.NoActionBar">
+            android:name="SplashActivity"
+            android:theme="@style/Theme.JukeBox">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
