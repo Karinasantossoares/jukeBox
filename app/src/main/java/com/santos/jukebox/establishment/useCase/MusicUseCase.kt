@@ -2,6 +2,7 @@ package com.santos.jukebox.establishment.useCase
 
 import android.content.Context
 import com.santos.jukebox.R
+import com.santos.jukebox.establishment.data.MusicEstablishmentResponse
 import com.santos.jukebox.establishment.data.RegisterMusicEstablishment
 import com.santos.jukebox.establishment.repository.MusicRepository
 
@@ -41,7 +42,7 @@ internal class MusicUseCase(
     ) = repository.deleteMusic(idMusic, success, error)
 
     fun findAll(
-        success: (List<RegisterMusicEstablishment>) -> Unit,
+        success: (List<MusicEstablishmentResponse>) -> Unit,
         error: (Exception) -> Unit
-    ) = repository.findMusics(success, error)
+    ) = repository.getAllMusics(success, error)
 }

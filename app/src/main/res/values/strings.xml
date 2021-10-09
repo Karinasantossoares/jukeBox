@@ -39,4 +39,6 @@
     <string name="error_list_music_client">Erro ao tentar listar músicas disponíveis</string>
     <string name="message_success_add_queue_client">Oba! Sua música já está na fila</string>
     <string name="message_error_add_queue_client">Poxa, não conseguimos adicionar sua música a fila. Tente novamente mais tarde</string>
+    <string name="see_queue">Acompanhar fila</string>
+    <string name="register_music">Adicionar novas músicas</string>
 </resources>

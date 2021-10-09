@@ -53,13 +53,12 @@ internal class RegisterMusicViewModel(
             music = music,
             success = {
                 _stateLiveData.value = _stateLiveData.value?.showLoadingMusics(false)
-                _actionLiveData.value =
-                    _actionLiveData.value?.showMessage(context.getString(R.string.message_save_success))
+                _actionLiveData.value = EventRegisterMusic.Success
             },
             error = {
                 _stateLiveData.value = _stateLiveData.value?.showLoadingMusics(false)
                 it.localizedMessage?.let { messageError ->
-                    _actionLiveData.value = _actionLiveData.value?.showMessage(messageError)
+                    _actionLiveData.value = EventRegisterMusic.ShowMessage(messageError)
                 }
             })
     }

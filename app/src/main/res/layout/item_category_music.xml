@@ -13,7 +13,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:padding="8dp">
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -26,6 +26,10 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:padding="10dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:lines="2"
+                android:autoSizeMinTextSize="12sp"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 tools:text="É o amor que mexe " />
