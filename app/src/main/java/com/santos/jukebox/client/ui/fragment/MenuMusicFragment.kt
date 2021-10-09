@@ -31,9 +31,6 @@ class MenuMusicFragment : Fragment() {
     }
 
     private fun setupListeners() {
-//       val adapter = SectionMusicAdapter(
-//
-//       )
        binding.recyclerSection.adapter
     }
 }
