@@ -18,7 +18,7 @@ internal class FirebaseMusic(
     ) {
         val nextId = database.push().key
         music.id = nextId.toString()
-        database.child(MUSIC)
+        database
             .child(nextId.toString())
             .setValue(music)
             .addOnCompleteListener {

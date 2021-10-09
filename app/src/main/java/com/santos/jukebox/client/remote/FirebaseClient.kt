@@ -11,12 +11,13 @@ class FirebaseClient(
 ) {
 
     private val database = databaseReference.child(QUEUE_MUSIC)
+    private val databaseMusic = databaseReference.child(MUSIC)
 
     fun getVisibleMusic(
         success: (List<Music>) -> Unit,
         error: (Exception) -> Unit
     ) {
-        database.addValueEventListener(object : ValueEventListener {
+        databaseMusic.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val list = snapshot.children.mapNotNull {
                     it.getValue(Music::class.java)
@@ -49,5 +50,6 @@ class FirebaseClient(
 
     companion object {
         private const val QUEUE_MUSIC = "QUEUE_MUSIC"
+        private const val MUSIC = "MUSIC"
     }
 }

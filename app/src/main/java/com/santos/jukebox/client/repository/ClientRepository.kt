@@ -14,10 +14,8 @@ class ClientRepository(
     ) {
         firebaseClient.getVisibleMusic(
             success = { musicList ->
-
-                var response = mutableListOf<MusicResponse>()
-
-                musicList.filter { it.isVisible }.forEach { currentMusic ->
+                val response = mutableListOf<MusicResponse>()
+                musicList.forEach { currentMusic ->
                     currentMusic.types.forEach { currentType ->
                         if (response.find { it.type == currentType } == null) {
                             response.add(MusicResponse(currentType, mutableListOf()))

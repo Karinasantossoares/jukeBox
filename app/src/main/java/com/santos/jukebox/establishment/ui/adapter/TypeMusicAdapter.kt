@@ -14,6 +14,7 @@ class TypeMusicAdapter(
     RecyclerView.Adapter<TypeMusicAdapter.ViewHolder>() {
 
     var onChecked: ((List<String>) -> Unit)? = null
+    var onPressedClick: ((String) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
@@ -39,6 +40,10 @@ class TypeMusicAdapter(
         fun bind(music: String) {
             binding.checkBox.isChecked = musicsChecked.contains(music)
             binding.checkBox.text = music
+            binding.checkBox.setOnLongClickListener {
+                onPressedClick?.invoke(music)
+                false
+            }
             binding.checkBox.setOnCheckedChangeListener { _, checked ->
                 if (checked) {
                     musicsChecked.add(music)

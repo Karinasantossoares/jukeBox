@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".client.ui.fragment.MenuMusicFragment">
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerSection"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:orientation="vertical"
+            android:layout_marginBottom="15dp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_see_queue"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/searchView"
+            tools:itemCount="3"
+            app:spanCount="3"
+            tools:listitem="@layout/item_section_music" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_see_queue"
+            android:background="@color/black"
+            android:textColor="@color/white"
+            android:text="@string/see_queue"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:textAllCaps="false"
+            android:layout_marginBottom="6dp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_register_music"
+            android:layout_marginHorizontal="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_register_music"
+            android:background="@color/black"
+            android:textColor="@color/white"
+            android:text="@string/register_music"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:textAllCaps="false"
+            android:layout_marginBottom="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginHorizontal="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+        <ProgressBar
+            android:id="@+id/pbLoad"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

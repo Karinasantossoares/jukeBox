@@ -23,6 +23,12 @@ internal class RegisterTypeMusicUseCase(
             music.isEmpty() -> {
                 error.invoke(Exception(context.getString(R.string.error_message_characteres)))
             }
+            music.contains("/")
+                    || music.contains(".")
+                    || music.contains(",")
+                    || music.contains("*") -> {
+                error.invoke(Exception(context.getString(R.string.error_default_name_characteres)))
+            }
             else -> {
                 success.invoke()
             }
@@ -38,10 +44,10 @@ internal class RegisterTypeMusicUseCase(
     }
 
     fun deleteTypeMusic(
-        typeMusic: String,
+        typeDelete: String,
         success: () -> Unit,
         error: (Exception) -> Unit
-    ) = repository.deleteTypeMusic(typeMusic, success, error)
+    ) = repository.deleteTypeMusic(typeDelete, success, error)
 
     fun getAllTypeMusics(
         success: (List<String>) -> Unit,

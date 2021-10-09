@@ -18,44 +18,17 @@ internal class RegisterTypeMusicViewModel(
         _liveData.postValue(liveData)
     }
 
-    fun saveNewMusic(typeMusic: String) {
+    fun saveNewTypeMusic(typeMusic: String) {
         notifyLiveData(StateTypeMusic.Loading)
         useCaseRegister.saveTypeMusic(
             typeMusic = typeMusic,
             success = {
-                println("success save")
+                notifyLiveData(StateTypeMusic.Success)
             },
             error = {
                 it.localizedMessage?.let { errorMessage ->
                     notifyLiveData(StateTypeMusic.ShowMessage(errorMessage))
                 }
             })
-    }
-
-    fun deleteTypeMusic(typeMusic: String) {
-        notifyLiveData(StateTypeMusic.Loading)
-        useCaseRegister.deleteTypeMusic(
-            typeMusic = typeMusic,
-            success = {
-                println("success delete")
-            },
-            error = {
-                it.localizedMessage?.let { errorMessage ->
-                    notifyLiveData(StateTypeMusic.ShowMessage(errorMessage))
-                }
-            })
-    }
-    fun getAllTypesMusic() {
-        notifyLiveData(StateTypeMusic.Loading)
-        useCaseRegister.getAllTypeMusics(
-            success = {
-                notifyLiveData(StateTypeMusic.Success(it))
-            },
-            error = {
-                it.localizedMessage?.let { errorMessage ->
-                    notifyLiveData(StateTypeMusic.ShowMessage(errorMessage))
-                }
-            }
-        )
     }
 }
