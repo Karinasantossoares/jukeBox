@@ -4,18 +4,27 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/drawable/button_shape.xml" value="0.21583333333333332" />
+        <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/drawable/corners_round_white.xml" value="0.23981481481481481" />
+        <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/drawable/ic_baseline_check_24.xml" value="0.23981481481481481" />
         <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/drawable/ic_launcher_background.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/drawable/item_list_shape.xml" value="0.21583333333333332" />
+        <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/drawable/search_shape.xml" value="0.23981481481481481" />
         <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/drawable/select_type_music.xml" value="0.23981481481481481" />
+        <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/drawable/shape_bottom_dialog.xml" value="0.23981481481481481" />
+        <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/drawable/shape_corners_blue.xml" value="0.23981481481481481" />
+        <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/drawable/shape_corners_green.xml" value="0.23981481481481481" />
         <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/drawable/type_music_checked.xml" value="0.23981481481481481" />
         <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/drawable/type_music_unchecked.xml" value="0.23981481481481481" />
         <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/layout/activity_splash.xml" value="0.1265625" />
         <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/layout/fragment_manager_menu_music.xml" value="0.2" />
         <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/layout/fragment_menu_music.xml" value="0.152" />
+        <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/layout/fragment_queue_music.xml" value="0.2" />
         <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/layout/fragment_register_music.xml" value="0.264" />
         <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/layout/fragment_register_type_music.xml" value="0.2" />
         <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/layout/item_category_music.xml" value="0.152" />
-        <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/layout/item_section_music.xml" value="0.136" />
+        <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/layout/item_layout_types.xml" value="0.536" />
+        <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/layout/item_queue_music.xml" value="0.264" />
+        <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/layout/item_section_music.xml" value="0.2" />
         <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/layout/item_type_music.xml" value="0.176" />
         <entry key="..\:/Users/karin/JukeBox/app/src/main/res/drawable/vector_music_splash.xml" value="0.3527777777777778" />
         <entry key="..\:/Users/karin/JukeBox/app/src/main/res/layout/activity_main.xml" value="0.17831813576494426" />
