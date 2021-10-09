@@ -7,7 +7,7 @@ import com.santos.jukebox.databinding.ItemCategoryMusicBinding
 
 class CategoryViewHolder(
     itemView: View,
-    private val listener: () -> Unit
+    private val listener: (Music) -> Unit
 ) : RecyclerView.ViewHolder(itemView) {
 
     private val binding = ItemCategoryMusicBinding.bind(itemView)
@@ -15,7 +15,7 @@ class CategoryViewHolder(
     fun bind(music: Music) {
         binding.textNameMusic.text = music.title
         binding.cardView.setOnClickListener {
-            listener.invoke()
+            listener.invoke(music)
         }
     }
 

@@ -5,10 +5,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.santos.jukebox.R
 import com.santos.jukebox.client.data.Music
+import com.santos.jukebox.client.data.MusicResponse
 import com.santos.jukebox.client.ui.adapter.viewholder.CategoryViewHolder
 
 class CategoryAdapter(
-    val listener: () -> Unit
+    val listener: (Music) -> Unit
 ) : RecyclerView.Adapter<CategoryViewHolder>() {
 
     var listNameMusic = emptyList<Music>()

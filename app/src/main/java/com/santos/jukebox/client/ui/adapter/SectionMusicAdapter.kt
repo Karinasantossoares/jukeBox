@@ -4,10 +4,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.santos.jukebox.R
+import com.santos.jukebox.client.data.Music
 import com.santos.jukebox.client.data.MusicResponse
 import com.santos.jukebox.client.ui.adapter.viewholder.SectionViewHolder
 
-class SectionMusicAdapter(val listener: () -> Unit) :
+class SectionMusicAdapter(val listener: (Music) -> Unit) :
     RecyclerView.Adapter<SectionViewHolder>() {
 
     var listMusic = emptyList<MusicResponse>()
