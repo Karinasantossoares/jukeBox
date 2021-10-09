@@ -7,16 +7,18 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import com.santos.establishment.viewmodel.RegisterEstablishmentViewModel
+import com.santos.jukebox.establishment.viewmodel.RegisterMusicViewModel
 import com.santos.jukebox.databinding.FragmentRegisterMusicBinding
 import com.santos.jukebox.establishment.data.RegisterMusicEstablishment
+import com.santos.jukebox.establishment.ui.adapter.TypeMusicAdapter
 import org.koin.android.viewmodel.ext.android.sharedViewModel
 
 class RegisterMusicFragment : Fragment() {
     private lateinit var binding: FragmentRegisterMusicBinding
     private val viewModelRegister:
-            RegisterEstablishmentViewModel by sharedViewModel()
+            RegisterMusicViewModel by sharedViewModel()
+
+    private val adapter by lazy { TypeMusicAdapter() }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,34 +30,43 @@ class RegisterMusicFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-            setupListeners()
-            setupObservables()
-        }
+        setupListeners()
+        setupObservables()
+    }
 
     private fun setupListeners() {
+        adapter.onChecked = {
+            viewModelRegister.setTypeMusics(it)
+        }
+        binding.recycleTypesMusic.adapter = adapter
+
         binding.btnRegister.setOnClickListener {
             val nameMusic = binding.etName.text.toString()
             val author = binding.etAuthor.text.toString()
             val music = RegisterMusicEstablishment(
                 title = nameMusic,
-                author = author
+                author = author,
+                types = adapter.musicsChecked
             )
             viewModelRegister.saveNewMusic(music)
         }
-
     }
 
     private fun setupObservables() {
-        viewModelRegister.loadResult.observe(viewLifecycleOwner, Observer {
-            binding.pbLoadRegister.isVisible = it
+        viewModelRegister.stateLiveData.observe(viewLifecycleOwner, {
+            binding.pbLoadRegister.isVisible = it.isLoadingSaveMusic
+            binding.btnRegister.isVisible = !it.isLoadingSaveMusic
+            binding.pbLoadTypes.isVisible = it.isLoadingGetTypeMusics
+            when {
+                it.allTypeMusics.isNotEmpty() -> {
+                    adapter.updateList(it.allTypeMusics, it.newMusic.types)
+                }
+            }
+
         })
 
-        viewModelRegister.successLiveData.observe(viewLifecycleOwner, Observer {
-            Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
-        })
-
-        viewModelRegister.errorLiveData.observe(viewLifecycleOwner, Observer {
-            Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
+        viewModelRegister.actionLiveData.observe(viewLifecycleOwner, {
+            Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
         })
     }
 

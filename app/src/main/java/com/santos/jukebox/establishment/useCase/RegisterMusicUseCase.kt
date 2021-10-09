@@ -1,10 +1,10 @@
-package com.santos.establishment.useCase
+package com.santos.jukebox.establishment.useCase
 
 import com.santos.jukebox.establishment.data.RegisterMusicEstablishment
-import com.santos.jukebox.establishment.repository.EstablishmentRepository
+import com.santos.jukebox.establishment.repository.MusicRepository
 
-internal class RegisterEstablishmentUseCase(
-    private val repository: EstablishmentRepository
+internal class RegisterMusicUseCase(
+    private val repository: MusicRepository
 ) {
 
     fun saveMusic(
