@@ -1,12 +1,10 @@
 package com.santos.jukebox.establishment.repository
 
 import com.santos.jukebox.establishment.data.RegisterMusicEstablishment
-import com.santos.jukebox.establishment.persistence.FirebaseEstablishment
+import com.santos.jukebox.establishment.remote.FirebaseMusic
 
-const val MUSIC = "MUSIC"
-
-internal class EstablishmentRepository(
-    private val firebaseEstablishment: FirebaseEstablishment
+internal class MusicRepository(
+    private val firebaseMusic: FirebaseMusic
 ) {
 
     fun saveMusic(
@@ -14,7 +12,7 @@ internal class EstablishmentRepository(
         error: (Exception) -> Unit,
         music: RegisterMusicEstablishment
     ) {
-        firebaseEstablishment.saveMusic(success, error, music)
+        firebaseMusic.saveMusic(success, error, music)
     }
 
     fun updateMusic(
@@ -22,7 +20,7 @@ internal class EstablishmentRepository(
         success: () -> Unit,
         error: (Exception) -> Unit,
     ) {
-        firebaseEstablishment.updateMusic(idMusic, success, error)
+        firebaseMusic.updateMusic(idMusic, success, error)
     }
 
     fun deleteMusic(
@@ -30,13 +28,13 @@ internal class EstablishmentRepository(
         success: () -> Unit,
         error: (Exception) -> Unit,
     ) {
-        firebaseEstablishment.deleteMusic(idMusic, success, error)
+        firebaseMusic.deleteMusic(idMusic, success, error)
     }
 
     fun findMusics(
         success: (List<RegisterMusicEstablishment>) -> Unit,
         error: (Exception) -> Unit
     ) {
-        firebaseEstablishment.findMusics(success, error)
+        firebaseMusic.getAllMusics(success, error)
     }
 }

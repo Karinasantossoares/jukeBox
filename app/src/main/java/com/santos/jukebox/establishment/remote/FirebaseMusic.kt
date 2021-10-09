@@ -1,24 +1,24 @@
-package com.santos.jukebox.establishment.persistence
+package com.santos.jukebox.establishment.remote
 
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
 import com.santos.jukebox.establishment.data.RegisterMusicEstablishment
-import com.santos.jukebox.establishment.repository.MUSIC
 
-internal class FirebaseEstablishment(
-    private val databaseEstablishment: DatabaseReference
+internal class FirebaseMusic(
+    databaseMusic: DatabaseReference
 ) {
+    private val database = databaseMusic.child(MUSIC)
 
     fun saveMusic(
         success: () -> Unit,
         error: (Exception) -> Unit,
         music: RegisterMusicEstablishment
     ) {
-        val nextId = databaseEstablishment.push().key
+        val nextId = database.push().key
         music.id = nextId.toString()
-        databaseEstablishment.child(MUSIC)
+        database.child(MUSIC)
             .child(nextId.toString())
             .setValue(music)
             .addOnCompleteListener {
@@ -34,7 +34,7 @@ internal class FirebaseEstablishment(
         success: () -> Unit,
         error: (Exception) -> Unit,
     ) {
-        databaseEstablishment.child(idMusic)
+        database.child(idMusic)
             .setValue(idMusic)
             .addOnSuccessListener {
                 success.invoke()
@@ -49,7 +49,7 @@ internal class FirebaseEstablishment(
         success: () -> Unit,
         error: (Exception) -> Unit,
     ) {
-        databaseEstablishment.child(idMusic)
+        database.child(idMusic)
             .removeValue()
             .addOnSuccessListener {
                 success.invoke()
@@ -59,11 +59,11 @@ internal class FirebaseEstablishment(
             }
     }
 
-    fun findMusics(
+    fun getAllMusics(
         success: (List<RegisterMusicEstablishment>) -> Unit,
         error: (Exception) -> Unit
     ) {
-        databaseEstablishment.addValueEventListener(object : ValueEventListener {
+        database.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val list = snapshot.children.mapNotNull {
                     it.getValue(RegisterMusicEstablishment::class.java)
@@ -75,5 +75,9 @@ internal class FirebaseEstablishment(
                 error.invoke(errorFirebase.toException())
             }
         })
+    }
+
+    companion object {
+        private const val MUSIC = "MUSIC"
     }
 }

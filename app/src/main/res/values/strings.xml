@@ -19,12 +19,18 @@
     <string name="acessibility_cadastrar_novo">Cadastrar nova música</string>
     <string name="message_title_screen_registration">Cadastrar música</string>
     <string name="title_name">Nome da música</string>
-    <string name="title_author">Nome do autor</string>
+    <string name="title_author">Nome do cantor (opicional)</string>
     <string name="music_author">Autor</string>
     <string name="title_confirmation_password">Letra</string>
     <string name="text_button_add_music">Cadastrar</string>
+<<<<<<< HEAD
     <string name="text_splash_activity">Ity Teiexeira Acústico</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="text_add_queue">Pedir</string>
+=======
+    <string name="new_type_music">Novo tipo musical</string>
+    <string name="error_message_always_type">Tipo musical já existente, por favor, escolha outro nome</string>
+    <string name="error_message_characteres">Musica deve conter ao menos um caractere</string>
+>>>>>>> 0946a24d5eaf59cbbd3e750287d25e640df7192c
 </resources>

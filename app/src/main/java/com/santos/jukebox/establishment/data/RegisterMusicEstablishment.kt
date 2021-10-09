@@ -1,8 +1,8 @@
 package com.santos.jukebox.establishment.data
 
-internal data class RegisterMusicEstablishment(
+data class RegisterMusicEstablishment(
     var id: String? = null,
     val title: String,
     val author: String,
-    val type: String? = null
+    val types: List<String> = listOf()
 )
