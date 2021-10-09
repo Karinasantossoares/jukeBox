@@ -14,6 +14,7 @@ class SectionMusicAdapter(val listener: () -> Unit) :
         set(value) {
             field
             notifyDataSetChanged()
+            field = value
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SectionViewHolder {

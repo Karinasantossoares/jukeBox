@@ -15,6 +15,7 @@ class CategoryAdapter(
         set(value) {
             field
             notifyDataSetChanged()
+            field = value
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
