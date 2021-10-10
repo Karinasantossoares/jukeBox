@@ -1,4 +1,4 @@
-package com.example.register_android.ui.component
+package com.santos.jukebox.client.ui.component
 
 import android.graphics.Color
 import android.os.Bundle

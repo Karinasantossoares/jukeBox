@@ -8,7 +8,7 @@ import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.register_android.ui.component.MusicBottomDialogFragment
+import com.santos.jukebox.client.ui.component.MusicBottomDialogFragment
 import com.santos.jukebox.R
 import com.santos.jukebox.client.ui.adapter.SectionMusicAdapter
 import com.santos.jukebox.client.ui.state.StateClient
