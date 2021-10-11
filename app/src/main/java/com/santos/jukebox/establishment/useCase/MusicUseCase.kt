@@ -6,7 +6,7 @@ import com.santos.jukebox.establishment.data.MusicEstablishmentResponse
 import com.santos.jukebox.establishment.data.RegisterMusicEstablishment
 import com.santos.jukebox.establishment.repository.MusicRepository
 
-internal class MusicUseCase(
+class MusicUseCase(
     private val repository: MusicRepository,
     private val context: Context
 ) {
@@ -30,10 +30,10 @@ internal class MusicUseCase(
     }
 
     fun updateMusic(
-        idMusic: String,
+        music: RegisterMusicEstablishment,
         success: () -> Unit,
         error: (Exception) -> Unit,
-    ) = repository.updateMusic(idMusic, success, error)
+    ) = repository.updateMusic(music, success, error)
 
     fun deleteMusic(
         idMusic: String,

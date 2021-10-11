@@ -46,32 +46,42 @@ internal class RegisterMusicViewModel(
         )
     }
 
-    fun saveNewMusic(music: RegisterMusicEstablishment) {
+    fun saveOrEditMusic(
+        title: String,
+        author: String,
+        types: MutableList<String>
+    ) {
         _stateLiveData.value = _stateLiveData.value?.showLoadingMusics(true)
-
-        useCaseMusic.saveMusic(
-            music = music,
-            success = {
-                _stateLiveData.value = _stateLiveData.value?.showLoadingMusics(false)
-                _actionLiveData.value = EventRegisterMusic.Success
-            },
-            error = {
-                _stateLiveData.value = _stateLiveData.value?.showLoadingMusics(false)
-                it.localizedMessage?.let { messageError ->
-                    _actionLiveData.value = EventRegisterMusic.ShowMessage(messageError)
-                }
-            })
+        _stateLiveData.value = _stateLiveData.value?.newMusic(title, author, types)
+        if (stateLiveData.value?.isEditionMusic == false) {
+            saveMusic()
+        } else {
+            updateMusic()
+        }
     }
 
-    fun updateMusic(music: RegisterMusicEstablishment) {
-        _stateLiveData.value = _stateLiveData.value?.showLoadingMusics(true)
-        music.id?.let {
-            useCaseMusic.updateMusic(idMusic = it,
+    private fun saveMusic() {
+        _stateLiveData.value?.newMusic?.let { music ->
+            useCaseMusic.saveMusic(
+                music = music,
                 success = {
                     _stateLiveData.value = _stateLiveData.value?.showLoadingMusics(false)
-                    _actionLiveData.value =
-                        _actionLiveData.value?.showMessage(context.getString(R.string.message_delete_music_error))
+                    _actionLiveData.value = EventRegisterMusic.Success
                 },
+                error = {
+                    _stateLiveData.value = _stateLiveData.value?.showLoadingMusics(false)
+                    it.localizedMessage?.let { messageError ->
+                        _actionLiveData.value = EventRegisterMusic.ShowMessage(messageError)
+                    }
+                })
+        }
+    }
+
+    private fun updateMusic() {
+        _stateLiveData.value?.newMusic?.let {
+            useCaseMusic.updateMusic(music = it,
+                success = {
+                    _actionLiveData.value = EventRegisterMusic.Success},
                 error = {
                     _stateLiveData.value = _stateLiveData.value?.showLoadingMusics(false)
                     _actionLiveData.value =
@@ -102,7 +112,7 @@ internal class RegisterMusicViewModel(
     fun setOnLongClick(music: String) {
         musicToDelete = music
         _actionLiveData.value = EventRegisterMusic.ShowDialogDialog(
-            context.getString(R.string.title_toolbar_delete_type_music),
+            context.getString(R.string.alert),
             context.getString(R.string.message_toolbar_delete_type_music, music)
         )
     }
@@ -111,36 +121,7 @@ internal class RegisterMusicViewModel(
         _stateLiveData.value?.setTypeMusics(typeMusics)
     }
 
-//    private fun getAllMusics() {
-//        _liveData.value = _liveData.value?.showLoadingMusics(true)
-//        useCaseMusic.findMusic(
-//            success = {
-//                _liveData.value = _liveData.value?.showLoadingMusics(false)
-//                _liveData.value = _liveData.value?.showListMusics(it)
-//            },
-//            error = {
-//                _liveData.value = _liveData.value?.showLoadingMusics(false)
-//                _liveData.value =
-//                    _liveData.value?.showMessage(context.getString(R.string.message_error_list_music))
-//            }
-//        )
-//    }
-
-
-//    fun deleteMusic(music: RegisterMusicEstablishment) {
-//        _liveData.value = _liveData.value?.showLoadingMusics(true)
-//        music.id?.let {
-//            useCaseMusic.deleteMusic(idMusic = it,
-//                success = {
-//                    _loadLiveData.value = false
-//                    _messageLiveData.value =
-//                        context.getString(R.string.message_delete_music_success)
-//                },
-//                error = {
-//                    _loadLiveData.value = false
-//                    _messageLiveData.value = context.getString(R.string.message_delete_music_error)
-//                })
-//        }
-//    }
-
+    fun setEditMusic(music: RegisterMusicEstablishment) {
+        _stateLiveData.value = _stateLiveData.value?.editionMusic(music)
+    }
 }

@@ -6,7 +6,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
 import com.santos.jukebox.establishment.data.RegisterMusicEstablishment
 
-internal class FirebaseMusic(
+class FirebaseMusic(
     databaseMusic: DatabaseReference
 ) {
     private val database = databaseMusic.child(MUSIC)
@@ -30,18 +30,20 @@ internal class FirebaseMusic(
     }
 
     fun updateMusic(
-        idMusic: String,
+        music: RegisterMusicEstablishment,
         success: () -> Unit,
         error: (Exception) -> Unit,
     ) {
-        database.child(idMusic)
-            .setValue(idMusic)
-            .addOnSuccessListener {
-                success.invoke()
-            }
-            .addOnFailureListener {
-                error.invoke(it)
-            }
+        music.id?.let { id ->
+            database.child(id)
+                .setValue(music)
+                .addOnSuccessListener {
+                    success.invoke()
+                }
+                .addOnFailureListener {
+                    error.invoke(it)
+                }
+        }
     }
 
     fun deleteMusic(

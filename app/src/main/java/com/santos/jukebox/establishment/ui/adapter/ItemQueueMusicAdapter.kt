@@ -8,11 +8,12 @@ import com.santos.jukebox.R
 import com.santos.jukebox.client.data.Music
 import com.santos.jukebox.client.ui.adapter.viewholder.CategoryViewHolder
 import com.santos.jukebox.databinding.ItemCategoryMusicBinding
+import com.santos.jukebox.databinding.ItemQueueMusicBinding
 import com.santos.jukebox.establishment.data.RegisterMusicEstablishment
 
-class ItemQueueMusicAdapter(
-    val tapFinishListener: ((RegisterMusicEstablishment) -> Unit)?
-) : RecyclerView.Adapter<ItemQueueMusicAdapter.ItemMusicViewHolder>() {
+class ItemQueueMusicAdapter : RecyclerView.Adapter<ItemQueueMusicAdapter.ItemMusicViewHolder>() {
+
+    var tapFinishListener: ((RegisterMusicEstablishment) -> Unit)? = null
 
     var listNameMusic = emptyList<RegisterMusicEstablishment>()
         set(value) {
@@ -38,10 +39,17 @@ class ItemQueueMusicAdapter(
         itemView: View
     ) : RecyclerView.ViewHolder(itemView) {
 
-        private val binding = ItemCategoryMusicBinding.bind(itemView)
+        private val binding = ItemQueueMusicBinding.bind(itemView)
 
         fun bind(music: RegisterMusicEstablishment) {
-            binding.textNameMusic.text = music.title
+            binding.btnFinish.setOnClickListener {
+                tapFinishListener?.invoke(music)
+            }
+            binding.tvOrderMusic.text = (adapterPosition + 1).toString()
+            binding.tvOrderMusic.text = (adapterPosition + 1).toString()
+            binding.tvNameMusic.text = music.title
+            binding.tvAuthorMusic.text = music.author
+            binding.rvListTypes.adapter = TypeMusicAdapter(music.types)
         }
 
     }

@@ -43,6 +43,14 @@ class ItemMusicAdapter(
 
         fun bind(music: RegisterMusicEstablishment) {
             binding.textNameMusic.text = music.title
+            binding.textNameMusic.setOnLongClickListener {
+                longClickListener?.invoke(music)
+                false
+            }
+            binding.textNameMusic.setOnClickListener {
+                tapListener?.invoke(music)
+            }
+
         }
 
     }

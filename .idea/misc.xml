@@ -13,6 +13,7 @@
         <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/drawable/shape_bottom_dialog.xml" value="0.23981481481481481" />
         <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/drawable/shape_corners_blue.xml" value="0.23981481481481481" />
         <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/drawable/shape_corners_green.xml" value="0.23981481481481481" />
+        <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/drawable/shape_crners_line_gray.xml" value="0.23981481481481481" />
         <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/drawable/type_music_checked.xml" value="0.23981481481481481" />
         <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/drawable/type_music_unchecked.xml" value="0.23981481481481481" />
         <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/layout/activity_splash.xml" value="0.1265625" />
@@ -21,7 +22,7 @@
         <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/layout/fragment_queue_music.xml" value="0.2" />
         <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/layout/fragment_register_music.xml" value="0.264" />
         <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/layout/fragment_register_type_music.xml" value="0.2" />
-        <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/layout/item_category_music.xml" value="0.152" />
+        <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/layout/item_category_music.xml" value="0.176" />
         <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/layout/item_layout_types.xml" value="0.536" />
         <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/layout/item_queue_music.xml" value="0.264" />
         <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/layout/item_section_music.xml" value="0.2" />
@@ -47,7 +48,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
