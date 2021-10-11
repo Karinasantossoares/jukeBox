@@ -14,5 +14,5 @@ data class Music(
     val title: String = "",
     val author: String = "",
     val types: List<String> = listOf(),
-    val isVisible: Boolean = true
+    val isVisible: Boolean = true,
 ) : Parcelable

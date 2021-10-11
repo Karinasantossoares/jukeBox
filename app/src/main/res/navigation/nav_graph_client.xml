@@ -16,6 +16,6 @@
     </fragment>
     <dialog
         android:id="@+id/bottom_sheat_dialog"
-        android:name="com.santos.jukebox.client.ui.component.MusicBottomDialogFragment"
-        tools:layout="@layout/fragment_bottom_dialog_music"/>
+        android:name="com.santos.jukebox.client.ui.component.MusicBottomDialog"
+        tools:layout="@layout/bottom_dialog_music"/>
 </navigation>

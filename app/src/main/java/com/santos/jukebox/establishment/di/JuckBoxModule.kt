@@ -30,11 +30,3 @@ val modulesEstablishment = module {
     viewModel { ManagerMusicViewModel(get()) }
     viewModel { RegisterTypeMusicViewModel(get() ) }
 }
-
-val modulesClient = module {
-    single { single { FirebaseDatabase.getInstance().reference } }
-    single { FirebaseClient(get()) }
-    single { ClientRepository(get()) }
-    single { ClientUseCase(get(), get()) }
-    viewModel { ClientViewModel(get()) }
-}
