@@ -13,7 +13,7 @@ import com.santos.jukebox.R
 import com.santos.jukebox.databinding.FragmentRegisterMusicBinding
 import com.santos.jukebox.establishment.data.RegisterMusicEstablishment
 import com.santos.jukebox.establishment.ui.action.EventRegisterMusic
-import com.santos.jukebox.establishment.ui.adapter.TypeMusicAdapter
+import com.santos.jukebox.establishment.ui.adapter.SelectTypeMusicAdapter
 import com.santos.jukebox.establishment.viewmodel.RegisterMusicViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -22,9 +22,10 @@ class RegisterMusicFragment : Fragment() {
     private val viewModelRegister:
             RegisterMusicViewModel by viewModel()
 
-    private val adapter by lazy { TypeMusicAdapter() }
+    private val adapter by lazy { SelectTypeMusicAdapter() }
     private val builder by lazy { AlertDialog.Builder(requireContext()) }
     private val dialog by lazy { builder.create() }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,8 +37,10 @@ class RegisterMusicFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         binding.recycleTypesMusic.adapter = adapter
+        arguments?.getParcelable<RegisterMusicEstablishment>(EXTRA_KEY_MUSIC)?.let{
+            viewModelRegister.setEditMusic(it)
+        }
         setupListeners()
         setupObservables()
     }
@@ -63,12 +66,11 @@ class RegisterMusicFragment : Fragment() {
         binding.btnRegister.setOnClickListener {
             val nameMusic = binding.etName.text.toString()
             val author = binding.etAuthor.text.toString()
-            val music = RegisterMusicEstablishment(
+            viewModelRegister.saveOrEditMusic(
                 title = nameMusic,
                 author = author,
                 types = adapter.musicsChecked
             )
-            viewModelRegister.saveNewMusic(music)
         }
     }
 
@@ -79,6 +81,11 @@ class RegisterMusicFragment : Fragment() {
             binding.pbLoadTypes.isVisible = it.isLoadingGetTypeMusics
             when {
                 it.allTypeMusics.isNotEmpty() -> {
+                    adapter.updateList(it.allTypeMusics, it.newMusic.types)
+                }
+                it.isEditionMusic -> {
+                    binding.etName.setText(it.newMusic.title)
+                    binding.etAuthor.setText(it.newMusic.author)
                     adapter.updateList(it.allTypeMusics, it.newMusic.types)
                 }
             }
@@ -105,5 +112,8 @@ class RegisterMusicFragment : Fragment() {
         })
     }
 
+    companion object{
+        const val EXTRA_KEY_MUSIC = "EXTRA_KEY_MUSIC"
+    }
 
 }

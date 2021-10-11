@@ -61,7 +61,6 @@ class MenuMusicFragment : Fragment() {
                             binding.btnAddQueue.setOnClickListener {
                                 viewModelClient.addMusicQueue(true, music)
                                 binding.btnAddQueue.text = getString(R.string.message_music_add)
-                                binding.btnAddQueue.background = R.drawable.button_shape_music_added
                                 binding.btnAddQueue.isEnabled = false
                             }
                             bottomSheetDialog.show()

@@ -10,9 +10,28 @@ data class StateRegisterMusic(
     var allTypeMusics: List<String> = listOf(),
     var isLoadingSaveMusic: Boolean = false,
     var isLoadingGetTypeMusics: Boolean = false,
+    var isEditionMusic: Boolean = false,
 ) {
+
+    fun editionMusic(music: RegisterMusicEstablishment) = copy(
+        isEditionMusic = true,
+        newMusic = music
+    )
+
     fun showLoadingMusics(loading: Boolean) = copy(
         isLoadingSaveMusic = loading
+    )
+
+    fun newMusic(
+        title: String,
+        author: String,
+        types: List<String>
+    ) = copy(
+       newMusic = newMusic.copy(
+           title = title,
+           author = author,
+           types = types
+       )
     )
 
     fun setTypeMusics(allTypeMusics: List<String>) = copy(

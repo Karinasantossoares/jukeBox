@@ -3,9 +3,11 @@ package com.santos.jukebox.establishment.repository
 import com.santos.jukebox.establishment.data.MusicEstablishmentResponse
 import com.santos.jukebox.establishment.data.RegisterMusicEstablishment
 import com.santos.jukebox.establishment.remote.FirebaseMusic
+import com.santos.jukebox.establishment.remote.FirebaseQueueMusic
 
-internal class MusicRepository(
-    private val firebaseMusic: FirebaseMusic
+class MusicRepository(
+    private val firebaseMusic: FirebaseMusic,
+    private val firebaseQueueMusic: FirebaseQueueMusic
 ) {
 
     fun saveMusic(
@@ -17,11 +19,11 @@ internal class MusicRepository(
     }
 
     fun updateMusic(
-        idMusic: String,
+        music: RegisterMusicEstablishment,
         success: () -> Unit,
         error: (Exception) -> Unit,
     ) {
-        firebaseMusic.updateMusic(idMusic, success, error)
+        firebaseMusic.updateMusic(music, success, error)
     }
 
     fun deleteMusic(
@@ -31,6 +33,7 @@ internal class MusicRepository(
     ) {
         firebaseMusic.deleteMusic(idMusic, success, error)
     }
+
 
     fun getAllMusics(
         success: (List<MusicEstablishmentResponse>) -> Unit,
@@ -51,5 +54,20 @@ internal class MusicRepository(
                 success.invoke(response)
             }, error
         )
+    }
+
+    fun deleteMusicQueue(
+        idMusic: String,
+        success: () -> Unit,
+        error: (Exception) -> Unit,
+    ) {
+        firebaseQueueMusic.deleteMusicQueue(idMusic, success, error)
+    }
+
+    fun getAllQueueMusics(
+        success: (List<RegisterMusicEstablishment>) -> Unit,
+        error: (Exception) -> Unit
+    ) {
+        firebaseQueueMusic.getQueueMusics(success, error)
     }
 }

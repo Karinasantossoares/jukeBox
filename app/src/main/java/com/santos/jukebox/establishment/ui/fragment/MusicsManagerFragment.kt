@@ -1,15 +1,19 @@
 package com.santos.jukebox.establishment.ui.fragment
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.santos.jukebox.R
 import com.santos.jukebox.databinding.FragmentManagerMenuMusicBinding
 import com.santos.jukebox.establishment.ui.adapter.MusicByTypesAdapter
+import com.santos.jukebox.establishment.ui.fragment.RegisterMusicFragment.Companion.EXTRA_KEY_MUSIC
+import com.santos.jukebox.establishment.ui.state.EventListMusic
 import com.santos.jukebox.establishment.ui.state.StateListMusic
 import com.santos.jukebox.establishment.viewmodel.ManagerMusicViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -56,11 +60,33 @@ class MusicsManagerFragment : Fragment() {
                 }
             }
         }
+
+        viewModel.actionLiveData.observe(viewLifecycleOwner) { eventMusic ->
+            when (eventMusic) {
+                is EventListMusic.EditMusic -> {
+                    findNavController().navigate(R.id.action_to_register, Bundle().apply {
+                        putParcelable(EXTRA_KEY_MUSIC, eventMusic.music )
+                    })
+                }
+                is EventListMusic.DeleteMusic -> {
+                    AlertDialog.Builder(requireContext())
+                        .setMessage(getString(R.string.message_delete_music))
+                        .setTitle(getString(R.string.alert))
+                        .setPositiveButton(
+                            getString(R.string.yes)
+                        ) { p0, p1 ->
+                            viewModel.deleteMusic(eventMusic.music)
+                        }
+                        .create()
+                        .show()
+                }
+            }
+        }
     }
 
     private fun setupListeners() {
         binding.btnSeeQueue.setOnClickListener {
-
+            findNavController().navigate(R.id.action_to_queue)
         }
 
         binding.btnRegisterMusic.setOnClickListener {

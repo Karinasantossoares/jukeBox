@@ -7,12 +7,15 @@
 
     <fragment
         android:id="@+id/musicsManagerFragment"
-        tools:layout="@layout/fragment_manager_menu_music"
         android:name="com.santos.jukebox.establishment.ui.fragment.MusicsManagerFragment"
-        android:label="MusicsManagerFragment" >
+        android:label="MusicsManagerFragment"
+        tools:layout="@layout/fragment_manager_menu_music">
         <action
             android:id="@+id/action_to_register"
             app:destination="@id/registerMusicFragment" />
+        <action
+            android:id="@+id/action_to_queue"
+            app:destination="@id/musicsQueueFragment" />
     </fragment>
 
 
@@ -20,7 +23,13 @@
         android:id="@+id/registerMusicFragment"
         android:name="com.santos.jukebox.establishment.ui.fragment.RegisterMusicFragment"
         android:label="RegisterMusicFragment"
-        tools:layout="@layout/fragment_register_music" >
+        tools:layout="@layout/fragment_register_music">
+
+        <argument
+            android:name="music"
+            app:argType="com.santos.jukebox.establishment.data.RegisterMusicEstablishment"
+            app:nullable="true" />
+
         <action
             android:id="@+id/to_type_music"
             app:destination="@id/registerTypeMusicFragment" />
@@ -29,5 +38,11 @@
         android:id="@+id/registerTypeMusicFragment"
         android:name="com.santos.jukebox.establishment.ui.fragment.RegisterTypeMusicFragment"
         android:label="RegisterTypeMusicFragment"
-        tools:layout="@layout/fragment_register_type_music" />
+        tools:layout="@layout/fragment_register_type_music" >
+    </fragment>
+    <fragment
+        android:id="@+id/musicsQueueFragment"
+        android:name="com.santos.jukebox.establishment.ui.fragment.MusicsQueueFragment"
+        android:label="MusicsQueueFragment"
+        tools:layout="@layout/fragment_queue_music" />
 </navigation>

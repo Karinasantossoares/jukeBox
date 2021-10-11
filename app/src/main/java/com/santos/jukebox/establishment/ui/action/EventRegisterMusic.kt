@@ -10,9 +10,4 @@ sealed class EventRegisterMusic {
     ) : EventRegisterMusic()
 
     fun showMessage(message: String) = ShowMessage(message)
-
-    fun showDialog(title: String, message: String) = ShowDialogDialog(title, message)
-
-    fun hideDialog() = HideDialog
-
 }
