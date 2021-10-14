@@ -1,10 +1,8 @@
 package com.santos.jukebox.establishment.di
 
+import android.content.Context
 import com.google.firebase.database.FirebaseDatabase
-import com.santos.jukebox.client.remote.FirebaseClient
-import com.santos.jukebox.client.repository.ClientRepository
-import com.santos.jukebox.client.usecase.ClientUseCase
-import com.santos.jukebox.client.viewmodel.ClientViewModel
+import com.santos.jukebox.client.persistence.AppPreferences
 import com.santos.jukebox.establishment.remote.FirebaseMusic
 import com.santos.jukebox.establishment.remote.FirebaseQueueMusic
 import com.santos.jukebox.establishment.remote.FirebaseTypeMusic
@@ -31,16 +29,12 @@ val modulesEstablishment = module {
     single { MusicUseCase(get(), get()) }
     single { MusicQueueUseCase(get()) }
     single { RegisterTypeMusicUseCase(androidContext(), get()) }
-    viewModel { RegisterMusicViewModel(get(), get(), androidContext()) }
+    viewModel { RegisterMusicViewModel(get(), get(), androidContext(), get()) }
     viewModel { ManagerMusicViewModel(get()) }
-    viewModel { RegisterTypeMusicViewModel(get() ) }
-    viewModel { QueueMusicViewModel(get() ) }
-}
-
-val modulesClient = module {
-    single { single { FirebaseDatabase.getInstance().reference } }
-    single { FirebaseClient(get()) }
-    single { ClientRepository(get()) }
-    single { ClientUseCase(get(), get()) }
-    viewModel { ClientViewModel(get()) }
+    viewModel { RegisterTypeMusicViewModel(get()) }
+    viewModel { QueueMusicViewModel(get()) }
+    single {
+        androidContext().getSharedPreferences(AppPreferences.NAME, Context.MODE_PRIVATE)
+    }
+    single { AppPreferences(get()) }
 }

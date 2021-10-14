@@ -33,7 +33,18 @@ class MusicUseCase(
         music: RegisterMusicEstablishment,
         success: () -> Unit,
         error: (Exception) -> Unit,
-    ) = repository.updateMusic(music, success, error)
+    ) =
+        when {
+            music.title.isEmpty() -> {
+                error.invoke(Exception(context.getString(R.string.title_not_empty)))
+            }
+            music.types.isEmpty() -> {
+                error.invoke(Exception(context.getString(R.string.types_music_edit_empty)))
+            }
+            else -> {
+                repository.updateMusic(music, success, error)
+            }
+        }
 
     fun deleteMusic(
         idMusic: String,

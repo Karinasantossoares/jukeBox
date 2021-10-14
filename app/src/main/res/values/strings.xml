@@ -27,9 +27,11 @@
     <string name="new_type_music">Adicionar novo \nestilo musical</string>
     <string name="error_message_always_type">Tipo musical já existente, por favor, escolha outro nome</string>
     <string name="error_message_characteres">Musica deve conter ao menos um caractere</string>
+    <string name="error_message_type_characteres">Tipo deve conter ao menos um caractere</string>
     <string name="error_default_name_characteres">Caracteres inválidos no nome</string>
     <string name="title_not_empty">Título da música não pode ser vazio</string>
     <string name="types_music_empty">Para cadastrar a música é necessário ter pelo menos um estilo.</string>
+    <string name="types_music_edit_empty">Para editar a música é necessário ter pelo menos um estilo.</string>
     <string name="title_type_music">Ex: Sertanejo</string>
     <string name="alert">Alerta</string>
     <string name="message_toolbar_delete_type_music">Tem certeza que deseja deletar o estilo musical %1$s?\nas musicas cadastradas nesse estilo não serão deletadas.</string>
@@ -44,4 +46,6 @@
     <string name="empty_queue_musics">Nenhuma música escolhida pelo público ainda.</string>
     <string name="success_delete_music">Musica deletada com sucesso</string>
     <string name="message_delete_music">Tem certeza que deseja deletar essa música?</string>
+    <string name="message_music_add">Adicionada a fila de pedidos</string>
+    <string name="text_music_visibility">Deixar música visível para o cliente ?</string>
 </resources>

@@ -11,6 +11,7 @@ data class StateRegisterMusic(
     var isLoadingSaveMusic: Boolean = false,
     var isLoadingGetTypeMusics: Boolean = false,
     var isEditionMusic: Boolean = false,
+    var isMusicCheckVisible: Boolean = false
 ) {
 
     fun editionMusic(music: RegisterMusicEstablishment) = copy(
@@ -27,11 +28,12 @@ data class StateRegisterMusic(
         author: String,
         types: List<String>
     ) = copy(
-       newMusic = newMusic.copy(
-           title = title,
-           author = author,
-           types = types
-       )
+        newMusic = newMusic.copy(
+            title = title,
+            author = author,
+            types = types,
+            visibleForClient = isMusicCheckVisible
+        )
     )
 
     fun setTypeMusics(allTypeMusics: List<String>) = copy(
@@ -44,5 +46,9 @@ data class StateRegisterMusic(
 
     fun showLoadingTypeMusics(loading: Boolean) = copy(
         isLoadingGetTypeMusics = loading
+    )
+
+    fun setVisibilityMusic(checked: Boolean) = copy(
+        isMusicCheckVisible = checked
     )
 }

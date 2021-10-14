@@ -38,7 +38,7 @@ class RegisterMusicFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.recycleTypesMusic.adapter = adapter
-        arguments?.getParcelable<RegisterMusicEstablishment>(EXTRA_KEY_MUSIC)?.let{
+        arguments?.getParcelable<RegisterMusicEstablishment>(EXTRA_KEY_MUSIC)?.let {
             viewModelRegister.setEditMusic(it)
         }
         setupListeners()
@@ -46,31 +46,37 @@ class RegisterMusicFragment : Fragment() {
     }
 
     private fun setupListeners() {
-        adapter.onChecked = {
-            viewModelRegister.setTypeMusics(it)
-        }
+        with(binding) {
+            adapter.onChecked = {
+                viewModelRegister.setTypeMusics(it)
+            }
 
-        adapter.onPressedClick = {
-            viewModelRegister.setOnLongClick(it)
-        }
+            adapter.onPressedClick = {
+                viewModelRegister.setOnLongClick(it)
+            }
 
-        binding.btnAddType.setOnClickListener {
-            findNavController().navigate(R.id.to_type_music)
-        }
+            btnAddType.setOnClickListener {
+                findNavController().navigate(R.id.to_type_music)
+            }
 
-        builder.setPositiveButton(getString(R.string.yes)) { _, _ ->
-            viewModelRegister.deleteTypeMusic()
-            dialog.dismiss()
-        }
+            builder.setPositiveButton(getString(R.string.yes)) { _, _ ->
+                viewModelRegister.deleteTypeMusic()
+                dialog.dismiss()
+            }
 
-        binding.btnRegister.setOnClickListener {
-            val nameMusic = binding.etName.text.toString()
-            val author = binding.etAuthor.text.toString()
-            viewModelRegister.saveOrEditMusic(
-                title = nameMusic,
-                author = author,
-                types = adapter.musicsChecked
-            )
+            btnRegister.setOnClickListener {
+                val nameMusic = binding.etName.text.toString()
+                val author = binding.etAuthor.text.toString()
+                viewModelRegister.saveOrEditMusic(
+                    title = nameMusic,
+                    author = author,
+                    types = adapter.musicsChecked
+                )
+            }
+            checkBox.setOnCheckedChangeListener { _, checked ->
+                viewModelRegister.setVisibilityMusic(checked)
+            }
+
         }
     }
 
@@ -79,6 +85,7 @@ class RegisterMusicFragment : Fragment() {
             binding.pbLoadRegister.isVisible = it.isLoadingSaveMusic
             binding.btnRegister.isVisible = !it.isLoadingSaveMusic
             binding.pbLoadTypes.isVisible = it.isLoadingGetTypeMusics
+            binding.checkBox.isChecked = it.isMusicCheckVisible
             when {
                 it.allTypeMusics.isNotEmpty() -> {
                     adapter.updateList(it.allTypeMusics, it.newMusic.types)
@@ -112,7 +119,7 @@ class RegisterMusicFragment : Fragment() {
         })
     }
 
-    companion object{
+    companion object {
         const val EXTRA_KEY_MUSIC = "EXTRA_KEY_MUSIC"
     }
 

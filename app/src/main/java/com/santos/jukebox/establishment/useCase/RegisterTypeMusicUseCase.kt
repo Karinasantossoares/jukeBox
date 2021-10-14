@@ -40,7 +40,12 @@ internal class RegisterTypeMusicUseCase(
         success: () -> Unit,
         error: (Exception) -> Unit
     ) {
-        repository.saveTypeMusic(success, error, typeMusic)
+        if(typeMusic.isEmpty()){
+            error.invoke(Exception(context.getString(R.string.error_message_type_characteres)))
+        }else{
+            repository.saveTypeMusic(success, error, typeMusic)
+        }
+
     }
 
     fun deleteTypeMusic(

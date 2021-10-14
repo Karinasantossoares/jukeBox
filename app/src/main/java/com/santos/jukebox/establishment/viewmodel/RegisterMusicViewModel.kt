@@ -4,17 +4,19 @@ import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.santos.jukebox.establishment.data.RegisterMusicEstablishment
-import com.santos.jukebox.establishment.useCase.MusicUseCase
 import com.santos.jukebox.R
+import com.santos.jukebox.client.persistence.AppPreferences
+import com.santos.jukebox.establishment.data.RegisterMusicEstablishment
 import com.santos.jukebox.establishment.ui.action.EventRegisterMusic
 import com.santos.jukebox.establishment.ui.state.StateRegisterMusic
+import com.santos.jukebox.establishment.useCase.MusicUseCase
 import com.santos.jukebox.establishment.useCase.RegisterTypeMusicUseCase
 
 internal class RegisterMusicViewModel(
     private val useCaseMusic: MusicUseCase,
     private val useCaseTypeMusic: RegisterTypeMusicUseCase,
-    private val context: Context
+    private val context: Context,
+    private val preferences: AppPreferences
 ) : ViewModel() {
 
     private var _stateLiveData = MutableLiveData<StateRegisterMusic>()
@@ -58,6 +60,7 @@ internal class RegisterMusicViewModel(
         } else {
             updateMusic()
         }
+
     }
 
     private fun saveMusic() {
@@ -81,11 +84,13 @@ internal class RegisterMusicViewModel(
         _stateLiveData.value?.newMusic?.let {
             useCaseMusic.updateMusic(music = it,
                 success = {
-                    _actionLiveData.value = EventRegisterMusic.Success},
+                    _actionLiveData.value = EventRegisterMusic.Success
+                },
                 error = {
                     _stateLiveData.value = _stateLiveData.value?.showLoadingMusics(false)
-                    _actionLiveData.value =
-                        _actionLiveData.value?.showMessage(context.getString(R.string.error_update_music))
+                    it.localizedMessage?.let { messageError ->
+                        _actionLiveData.value = EventRegisterMusic.ShowMessage(messageError)
+                    }
                 }
             )
         }
@@ -123,5 +128,9 @@ internal class RegisterMusicViewModel(
 
     fun setEditMusic(music: RegisterMusicEstablishment) {
         _stateLiveData.value = _stateLiveData.value?.editionMusic(music)
+    }
+
+    fun setVisibilityMusic(checked: Boolean) {
+        _stateLiveData.value = _stateLiveData.value?.setVisibilityMusic(checked)
     }
 }

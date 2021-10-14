@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.santos.jukebox.R
 import com.santos.jukebox.databinding.ItemLayoutTypesBinding
-import com.santos.jukebox.databinding.ItemTypeMusicBinding
 
 class TypeMusicAdapter(
     var musics: List<String> = listOf()

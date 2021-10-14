@@ -39,7 +39,7 @@ class ClientViewModel(private val useCase: ClientUseCase) : ViewModel() {
 
     fun addMusicQueue(
         selectedMusic: Boolean,
-        music: Music,
+        music: Music
     ) {
         notifyLiveData(StateClient.Loading)
         useCase.addMusicQueue(

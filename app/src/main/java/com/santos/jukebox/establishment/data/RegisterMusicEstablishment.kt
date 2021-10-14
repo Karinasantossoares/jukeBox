@@ -9,5 +9,6 @@ data class RegisterMusicEstablishment(
     val title: String = "",
     val author: String = "",
     val types: List<String> = listOf(),
-    val isVisible: Boolean = true
-): Parcelable
+    val isVisible: Boolean = true,
+    val visibleForClient: Boolean? = null
+) : Parcelable
