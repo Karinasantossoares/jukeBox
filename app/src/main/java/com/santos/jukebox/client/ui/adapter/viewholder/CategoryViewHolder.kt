@@ -13,7 +13,7 @@ class CategoryViewHolder(
     private val binding = ItemCategoryMusicBinding.bind(itemView)
 
     fun bind(music: Music) {
-        if (music.visibleForClient == true) {
+        if (music.visible) {
             binding.textNameMusic.text = music.title
             binding.cardView.setOnClickListener {
                 listener.invoke(music)

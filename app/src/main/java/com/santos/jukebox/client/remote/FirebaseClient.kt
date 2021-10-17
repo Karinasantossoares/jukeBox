@@ -23,7 +23,7 @@ class FirebaseClient(
                     it.getValue(Music::class.java)
                 }
                 success.invoke(list.filter {
-                    it.isVisible
+                    it.visible
                 })
             }
 

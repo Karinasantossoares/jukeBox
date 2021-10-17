@@ -70,11 +70,10 @@ class RegisterMusicFragment : Fragment() {
                 viewModelRegister.saveOrEditMusic(
                     title = nameMusic,
                     author = author,
-                    types = adapter.musicsChecked
+                    types = adapter.musicsChecked,
+                    isVisible = binding.checkBox.isChecked
+
                 )
-            }
-            checkBox.setOnCheckedChangeListener { _, checked ->
-                viewModelRegister.setVisibilityMusic(checked)
             }
 
         }
@@ -85,12 +84,12 @@ class RegisterMusicFragment : Fragment() {
             binding.pbLoadRegister.isVisible = it.isLoadingSaveMusic
             binding.btnRegister.isVisible = !it.isLoadingSaveMusic
             binding.pbLoadTypes.isVisible = it.isLoadingGetTypeMusics
-            binding.checkBox.isChecked = it.isMusicCheckVisible
             when {
                 it.allTypeMusics.isNotEmpty() -> {
                     adapter.updateList(it.allTypeMusics, it.newMusic.types)
                 }
                 it.isEditionMusic -> {
+                    binding.checkBox.isChecked = it.newMusic.visible
                     binding.etName.setText(it.newMusic.title)
                     binding.etAuthor.setText(it.newMusic.author)
                     adapter.updateList(it.allTypeMusics, it.newMusic.types)

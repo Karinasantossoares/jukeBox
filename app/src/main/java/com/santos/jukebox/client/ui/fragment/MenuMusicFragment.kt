@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -19,7 +20,7 @@ import org.koin.android.viewmodel.ext.android.viewModel
 
 class MenuMusicFragment : Fragment() {
     private lateinit var binding: FragmentMenuMusicBinding
-    private val viewModelClient:
+    private val viewModel:
             ClientViewModel by viewModel()
 
     private val adapterMusic by lazy {
@@ -42,10 +43,27 @@ class MenuMusicFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupObservables()
+        setupListeners()
+    }
+
+    private fun setupListeners() {
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
+            androidx.appcompat.widget.SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(text: String?): Boolean {
+                text?.let { viewModel.filterResults(it) }
+                return true
+            }
+
+            override fun onQueryTextChange(text: String?): Boolean {
+                text?.let { viewModel.filterResults(it) }
+                return true
+            }
+
+        })
     }
 
     private fun setupObservables() {
-        viewModelClient.stateLiveData.observe(viewLifecycleOwner, {
+        viewModel.stateLiveData.observe(viewLifecycleOwner, {
             when (it) {
                 is StateClient.Loading -> binding.pbLoad.isVisible = true
 
@@ -76,7 +94,7 @@ class MenuMusicFragment : Fragment() {
             bottomSheetDialog.dismiss()
         }
         binding.btnAddQueue.setOnClickListener {
-            viewModelClient.addMusicQueue(true, music)
+            viewModel.addMusicQueue(true, music)
             binding.btnAddQueue.text = getString(R.string.message_music_add)
             binding.btnAddQueue.isEnabled = false
         }

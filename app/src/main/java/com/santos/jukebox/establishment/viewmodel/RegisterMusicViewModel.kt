@@ -51,10 +51,11 @@ internal class RegisterMusicViewModel(
     fun saveOrEditMusic(
         title: String,
         author: String,
-        types: MutableList<String>
+        types: MutableList<String>,
+        isVisible: Boolean
     ) {
         _stateLiveData.value = _stateLiveData.value?.showLoadingMusics(true)
-        _stateLiveData.value = _stateLiveData.value?.newMusic(title, author, types)
+        _stateLiveData.value = _stateLiveData.value?.newMusic(title, author, types, isVisible)
         if (stateLiveData.value?.isEditionMusic == false) {
             saveMusic()
         } else {
@@ -128,9 +129,5 @@ internal class RegisterMusicViewModel(
 
     fun setEditMusic(music: RegisterMusicEstablishment) {
         _stateLiveData.value = _stateLiveData.value?.editionMusic(music)
-    }
-
-    fun setVisibilityMusic(checked: Boolean) {
-        _stateLiveData.value = _stateLiveData.value?.setVisibilityMusic(checked)
     }
 }
