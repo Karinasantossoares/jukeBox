@@ -10,11 +10,11 @@ android {
 
     defaultConfig {
         applicationId "com.santos.jukebox"
-        minSdk 21
+        minSdk 15
         targetSdk 31
         versionCode 1
         versionName "1.0"
-
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
     }
@@ -84,8 +84,6 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
 
     //Animation
-    implementation "com.airbnb.android:lottie:3.4.0"
-    implementation 'com.google.firebase:firebase-auth-ktx:21.0.1'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 

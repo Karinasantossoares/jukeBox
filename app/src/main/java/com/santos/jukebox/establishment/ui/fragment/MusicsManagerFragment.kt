@@ -1,10 +1,10 @@
 package com.santos.jukebox.establishment.ui.fragment
 
-import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -65,7 +65,7 @@ class MusicsManagerFragment : Fragment() {
             when (eventMusic) {
                 is EventListMusic.EditMusic -> {
                     findNavController().navigate(R.id.action_to_register, Bundle().apply {
-                        putParcelable(EXTRA_KEY_MUSIC, eventMusic.music )
+                        putParcelable(EXTRA_KEY_MUSIC, eventMusic.music)
                     })
                 }
                 is EventListMusic.DeleteMusic -> {
@@ -100,5 +100,19 @@ class MusicsManagerFragment : Fragment() {
         adapter.deleteListener = {
             viewModel.tapOnDelete(it)
         }
+
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
+            androidx.appcompat.widget.SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(text: String?): Boolean {
+                text?.let { viewModel.filterResultsSearchView(it) }
+                return true
+            }
+
+            override fun onQueryTextChange(text: String?): Boolean {
+                text?.let { viewModel.filterResultsSearchView(it) }
+                return true
+            }
+
+        })
     }
 }

@@ -15,10 +15,6 @@ class ClientViewModel(private val useCase: ClientUseCase) : ViewModel() {
     val stateLiveData: LiveData<StateClient>
         get() = _stateLiveData
 
-    private var _actionLiveData = MutableLiveData<StateClient>()
-    val actionLiveData: LiveData<StateClient>
-        get() = _actionLiveData
-
     private fun notifyLiveData(liveData: StateClient) {
         _stateLiveData.value = liveData
     }
@@ -45,7 +41,7 @@ class ClientViewModel(private val useCase: ClientUseCase) : ViewModel() {
             return@map MusicResponse(
                 type = it.type,
                 musics = it.musics.filter { music ->
-                    music.title.contains(text)
+                    music.title.lowercase().contains(text.lowercase())
                 }.toMutableList()
             )
         }?.filter { it.musics.isNotEmpty() }

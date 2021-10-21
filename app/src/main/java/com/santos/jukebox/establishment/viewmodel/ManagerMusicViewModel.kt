@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.santos.jukebox.R
+import com.santos.jukebox.establishment.data.MusicEstablishmentResponse
 import com.santos.jukebox.establishment.data.RegisterMusicEstablishment
 import com.santos.jukebox.establishment.ui.state.EventListMusic
 import com.santos.jukebox.establishment.ui.state.StateListMusic
@@ -21,6 +22,8 @@ internal class ManagerMusicViewModel(
     val actionLiveData: LiveData<EventListMusic>
         get() = _actionLiveData
 
+    private var currentTypes: List<MusicEstablishmentResponse>? = null
+
     init {
         findAll()
     }
@@ -29,6 +32,7 @@ internal class ManagerMusicViewModel(
         _stateLiveData.value = StateListMusic.Loading
         useCaseMusic.findAll(
             success = {
+                this.currentTypes = it
                 _stateLiveData.value = StateListMusic.SuccessListMusic(it)
             },
             error = {
@@ -44,7 +48,8 @@ internal class ManagerMusicViewModel(
             useCaseMusic.deleteMusic(
                 it,
                 success = {
-                    _stateLiveData.value = StateListMusic.ShowMessageId(R.string.success_delete_music)
+                    _stateLiveData.value =
+                        StateListMusic.ShowMessageId(R.string.success_delete_music)
                 },
                 error = {
                     it.localizedMessage?.let { error ->
@@ -52,6 +57,20 @@ internal class ManagerMusicViewModel(
                     }
                 }
             )
+        }
+    }
+
+    fun filterResultsSearchView(text: String) {
+        currentTypes?.map {
+            return@map MusicEstablishmentResponse(
+                it.type,
+                it.musics.filter { music ->
+                    music.title.lowercase().contains(text.lowercase())
+                }.toMutableList()
+            )
+        }?.filter { it.musics.isNotEmpty() }?.let {
+            _stateLiveData.value =
+                StateListMusic.SuccessListMusic(it)
         }
     }
 
