@@ -6,7 +6,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
 import com.santos.jukebox.client.data.Music
 
-class FirebaseClient(
+class ClientFirebase(
     databaseReference: DatabaseReference
 ) {
 

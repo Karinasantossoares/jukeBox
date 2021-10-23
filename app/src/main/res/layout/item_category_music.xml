@@ -28,11 +28,11 @@
                 android:gravity="center"
                 android:padding="10dp"
                 android:ellipsize="end"
-                android:maxLines="2"
+                android:maxLines="4"
                 android:lines="2"
                 android:autoSizeMinTextSize="12sp"
                 android:textColor="@color/white"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 tools:text="É o amor que mexe " />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
