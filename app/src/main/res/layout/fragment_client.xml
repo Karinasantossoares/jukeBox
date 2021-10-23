@@ -19,12 +19,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatImageButton
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/btnSuggestionMusic"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:padding="8dp"
-            android:background="@drawable/ic_lamp"
+            android:padding="10dp"
+            android:src="@drawable/ic_lamp"
             app:layout_constraintTop_toTopOf="@id/searchView"
             app:layout_constraintBottom_toBottomOf="@id/searchView"
             android:layout_marginHorizontal="16dp"

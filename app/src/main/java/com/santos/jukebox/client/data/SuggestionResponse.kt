@@ -1,5 +1,6 @@
 package com.santos.jukebox.client.data
 
 data class SuggestionResponse(
-    val text: String
+    var id: String? = null,
+    val text: String? = ""
 )

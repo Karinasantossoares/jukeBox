@@ -57,7 +57,8 @@ class MusicsManagerFragment : Fragment() {
 
                 }
                 is StateListMusic.ShowMessageId -> {
-                    Toast.makeText(requireContext(), getString(it.idMusic), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), getString(it.idMusic), Toast.LENGTH_SHORT)
+                        .show()
 
                 }
                 is StateListMusic.SuccessListMusic -> {
@@ -108,6 +109,10 @@ class MusicsManagerFragment : Fragment() {
 
         binding.imgGraph.setOnClickListener {
             findNavController().navigate(R.id.action_to_graph)
+        }
+
+        binding.imgLamp.setOnClickListener {
+            findNavController().navigate(R.id.action_to_recommended)
         }
 
         adapter.editListener = {

@@ -13,10 +13,11 @@
         <action
             android:id="@+id/action_menuFragment_to_suggestionFragment"
             app:destination="@id/suggestionFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/suggestionFragment"
-        tools:layout="@layout/fragment_suggestion"
-        android:name="com.santos.jukebox.client.ui.fragment.SuggestionFragment"
+        tools:layout="@layout/fragment_bottom_sheet_suggestion"
+        android:name="com.santos.jukebox.client.ui.fragment.SuggestionBottomSheetFragment"
         android:label="SuggestionFragment" />
 </navigation>
