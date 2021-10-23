@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_to_queue"
             app:destination="@id/musicsQueueFragment" />
+        <action
+            android:id="@+id/action_to_graph"
+            app:destination="@id/graphFragment" />
     </fragment>
 
 
@@ -45,4 +48,9 @@
         android:name="com.santos.jukebox.establishment.ui.fragment.MusicsQueueFragment"
         android:label="MusicsQueueFragment"
         tools:layout="@layout/fragment_queue_music" />
+    <fragment
+        android:id="@+id/graphFragment"
+        tools:layout="@layout/fragment_graph"
+        android:name="com.santos.jukebox.establishment.ui.fragment.GraphFragment"
+        android:label="GraphFragment" />
 </navigation>

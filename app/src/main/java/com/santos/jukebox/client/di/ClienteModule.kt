@@ -13,9 +13,7 @@ import org.koin.dsl.module
 val modulesClient = module {
     single { single { FirebaseDatabase.getInstance().reference } }
     single { ClientFirebase(get()) }
-    single { HistoryFirebase(get()) }
     single { ClientRepository(get()) }
-    single { HistoryRepository(get()) }
     single { ClientUseCase(get(), get(), get()) }
     viewModel { ClientViewModel(get()) }
 }

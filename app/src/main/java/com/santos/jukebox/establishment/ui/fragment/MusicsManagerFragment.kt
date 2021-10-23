@@ -106,6 +106,10 @@ class MusicsManagerFragment : Fragment() {
             findNavController().navigate(R.id.action_to_register)
         }
 
+        binding.imgGraph.setOnClickListener {
+            findNavController().navigate(R.id.action_to_graph)
+        }
+
         adapter.editListener = {
             viewModel.tapOnEdit(it)
         }

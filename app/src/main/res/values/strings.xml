@@ -50,4 +50,8 @@
     <string name="text_music_visibility">Deixar música visível para o cliente ?</string>
     <string name="nothing_musics">Nenhuma música encontrada</string>
     <string name="text_message_client">Digite aqui uma mensagem para (Opicional)</string>
+    <string name="estilos_musicais_mais_pedidos">Estilos musicais mais pedidos:</string>
+    <string name="statistics">Estatísticas</string>
+    <string name="error_message_graph">Não foi possível buscar as estatísticas nesse momento, por favor, tente novamente mais tarde.</string>
+    <string name="label_top_10">Top 10 músicas pedidas</string>
 </resources>

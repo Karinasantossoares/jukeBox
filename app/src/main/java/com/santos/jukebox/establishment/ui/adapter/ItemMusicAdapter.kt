@@ -11,8 +11,8 @@ import com.santos.jukebox.databinding.ItemCategoryMusicBinding
 import com.santos.jukebox.establishment.data.RegisterMusicEstablishment
 
 class ItemMusicAdapter(
-    val tapListener: ((RegisterMusicEstablishment) -> Unit)?,
-    val longClickListener: ((RegisterMusicEstablishment) -> Unit)?,
+    var tapListener: ((RegisterMusicEstablishment) -> Unit)? = null,
+    var longClickListener: ((RegisterMusicEstablishment) -> Unit)? = null,
 ) : RecyclerView.Adapter<ItemMusicAdapter.ItemMusicViewHolder>() {
 
     var listNameMusic = emptyList<RegisterMusicEstablishment>()
