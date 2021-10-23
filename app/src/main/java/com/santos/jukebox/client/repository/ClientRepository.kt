@@ -2,10 +2,10 @@ package com.santos.jukebox.client.repository
 
 import com.santos.jukebox.client.data.Music
 import com.santos.jukebox.client.data.MusicResponse
-import com.santos.jukebox.client.remote.FirebaseClient
+import com.santos.jukebox.client.remote.ClientFirebase
 
 class ClientRepository(
-    private val firebaseClient: FirebaseClient
+    private val firebaseClient: ClientFirebase
 ) {
 
     fun getVisibleMusic(

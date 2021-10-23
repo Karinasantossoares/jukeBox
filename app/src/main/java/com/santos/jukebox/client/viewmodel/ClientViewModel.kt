@@ -31,7 +31,9 @@ class ClientViewModel(private val useCase: ClientUseCase) : ViewModel() {
                 showListClient(it)
             },
             error = {
-                notifyLiveData(StateClient.ShowMessage(it.localizedMessage))
+                it.localizedMessage?.let { error ->
+                    notifyLiveData(StateClient.ShowMessage(error))
+                }
             }
         )
     }
@@ -68,9 +70,12 @@ class ClientViewModel(private val useCase: ClientUseCase) : ViewModel() {
             music = music,
             success = {
                 notifyLiveData(StateClient.ShowMessage(it))
+                useCase.addMusicHistory(music)
             },
             error = {
-                notifyLiveData(StateClient.ShowMessage(it.localizedMessage))
+                it.localizedMessage?.let { error ->
+                    notifyLiveData(StateClient.ShowMessage(error))
+                }
             }
         )
     }
