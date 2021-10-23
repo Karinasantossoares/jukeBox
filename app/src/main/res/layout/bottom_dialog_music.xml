@@ -58,14 +58,17 @@
                 tools:text="Xitãoziho e Xororo" />
 
             <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/requestNameText"
+                android:id="@+id/edt_requester"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
+                android:gravity="start|center"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="16dp"
                 android:hint="@string/text_message_client"
                 android:inputType="text"
-                android:lines="1"
+                android:lines="2"
                 android:maxLines="3"
                 android:minLines="3"
                 android:textColor="@color/black"
@@ -90,7 +93,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/requestNameText"
+                app:layout_constraintTop_toBottomOf="@id/edt_requester"
                 app:layout_constraintVertical_bias="0" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,22 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".client.ui.fragment.MenuMusicFragment">
+        tools:context=".client.ui.fragment.ClientFragment">
 
         <androidx.appcompat.widget.SearchView
             android:id="@+id/searchView"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toStartOf="@id/btnSuggestionMusic"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnSuggestionMusic"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="8dp"
+            android:background="@drawable/ic_lamp"
+            app:layout_constraintTop_toTopOf="@id/searchView"
+            app:layout_constraintBottom_toBottomOf="@id/searchView"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/searchView" />
 
         <TextView
             android:id="@+id/tv_empty_musics"
@@ -44,17 +59,16 @@
             android:id="@+id/recyclerSection"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="16dp"
-            android:orientation="vertical"
             android:layout_marginBottom="16dp"
-            app:layout_constraintVertical_bias="0"
+            android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintTop_toBottomOf="@id/searchView"
-            tools:itemCount="3"
-            app:spanCount="3"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/searchView"
+            app:layout_constraintVertical_bias="1.0"
+            app:spanCount="3"
+            tools:itemCount="3"
+            tools:layout_editor_absoluteX="-113dp"
             tools:listitem="@layout/item_section_music" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

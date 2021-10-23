@@ -45,7 +45,8 @@
                 app:layout_constraintEnd_toStartOf="@+id/btn_finish"
                 app:layout_constraintStart_toEndOf="@+id/tv_order_music"
                 app:layout_constraintTop_toTopOf="@+id/tv_order_music"
-                tools:text="É o amor de leandro e leonardo meus queridos" />
+                tools:text="É o amor de leandro e leonardo meus queridos"
+                android:layout_marginLeft="35dp" />
 
             <TextView
                 android:id="@+id/tv_author_music"
@@ -61,7 +62,8 @@
                 app:layout_constraintEnd_toStartOf="@+id/btn_finish"
                 app:layout_constraintStart_toEndOf="@+id/tv_order_music"
                 app:layout_constraintTop_toBottomOf="@+id/tv_name_music"
-                tools:text="Ferreira e ferreirinha" />
+                tools:text="Ferreira e ferreirinha"
+                android:layout_marginLeft="35dp" />
 
 
             <androidx.appcompat.widget.AppCompatImageButton
@@ -75,6 +77,17 @@
                 app:layout_constraintTop_toTopOf="@+id/tv_order_music"
                 app:srcCompat="@drawable/ic_check" />
 
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textViewRequestingPerson"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tv_author_music"
+                app:layout_constraintStart_toStartOf="@id/tv_author_music"
+                app:layout_constraintEnd_toEndOf="@id/tv_author_music"
+                android:layout_marginTop="15dp"
+                android:textColor="#fff"/>
+
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_list_types"
                 android:layout_width="match_parent"
@@ -86,7 +99,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:spanCount="3"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_author_music"
+                app:layout_constraintTop_toBottomOf="@+id/textViewRequestingPerson"
                 tools:listitem="@layout/item_layout_types"
                 tools:itemCount="8"/>
 

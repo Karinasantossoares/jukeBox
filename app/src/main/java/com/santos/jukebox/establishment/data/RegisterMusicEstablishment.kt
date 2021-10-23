@@ -8,6 +8,7 @@ data class RegisterMusicEstablishment(
     var id: String? = null,
     val title: String = "",
     val author: String = "",
+    var requestName: String? = null,
     val types: List<String> = listOf(),
     val visible: Boolean = true
 ) : Parcelable

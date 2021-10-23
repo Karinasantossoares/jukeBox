@@ -11,7 +11,6 @@ import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val modulesClient = module {
-    single { single { FirebaseDatabase.getInstance().reference } }
     single { ClientFirebase(get()) }
     single { ClientRepository(get()) }
     single { ClientUseCase(get(), get(), get()) }
