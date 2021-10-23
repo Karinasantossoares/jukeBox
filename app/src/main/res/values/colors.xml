@@ -9,4 +9,10 @@
     <color name="white">#FFFFFFFF</color>
     <color name="blue">#1370BA</color>
     <color name="green">#4CAF50</color>
+    <color name="grapy_1">#F44336</color>
+    <color name="grapy_2">#FF9800</color>
+    <color name="grapy_3">#9C27B0</color>
+    <color name="grapy_4">#3F51B5</color>
+    <color name="grapy_5">#2196F3</color>
+    <color name="grapy_6">#4CAF50</color>
 </resources>

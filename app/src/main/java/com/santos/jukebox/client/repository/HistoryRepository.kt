@@ -1,9 +1,6 @@
 package com.santos.jukebox.client.repository
 
-import com.santos.jukebox.client.data.GraphMusic
-import com.santos.jukebox.client.data.Music
-import com.santos.jukebox.client.data.MusicResponse
-import com.santos.jukebox.client.data.TopMusicsResponse
+import com.santos.jukebox.client.data.*
 import com.santos.jukebox.client.remote.HistoryFirebase
 import com.santos.jukebox.establishment.data.MusicEstablishmentResponse
 
@@ -28,9 +25,19 @@ class HistoryRepository(
     }
 
     private fun getTop10Musics(musicList: List<Music>): List<Music> {
-        return musicList
-            .sortedWith(compareBy { it.requestName })
-            .take(10)
+        val topMusics: MutableList<MusicCount> = mutableListOf()
+
+        musicList.forEach { currentMusic ->
+            val topMusic = topMusics.find { it.music == currentMusic }
+            if (topMusic == null) {
+                topMusics.add(MusicCount(currentMusic, 1))
+            } else {
+                topMusic.count++
+            }
+        }
+        topMusics.sortByDescending { it.count }
+
+        return topMusics.take(10).map { it.music }
     }
 
     private fun getGraphMusic(musicList: List<Music>): List<GraphMusic> {
@@ -46,10 +53,10 @@ class HistoryRepository(
         }
 
         response.sortBy { it.musics.size }
-        val totalMusics = response.map { it.musics.size }.sum()
+        val totalMusics = response.map { it.musics.size }.sum().toFloat()
         return response.map {
-            GraphMusic(it.type, (it.musics.size * 100) / totalMusics)
-        }
+            GraphMusic(it.type, (it.musics.size.toFloat() * 100.0F) / totalMusics)
+        }.take(6)
     }
 
 }

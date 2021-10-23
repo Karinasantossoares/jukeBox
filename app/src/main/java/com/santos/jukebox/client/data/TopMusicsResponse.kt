@@ -8,5 +8,5 @@ data class TopMusicsResponse(
 
 data class GraphMusic(
     val name: String,
-    val percentage: Int
+    val percentage: Float
 )

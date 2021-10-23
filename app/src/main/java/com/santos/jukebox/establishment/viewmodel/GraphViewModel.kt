@@ -3,14 +3,9 @@ package com.santos.jukebox.establishment.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.intrusoft.scatter.ChartData
+import com.github.mikephil.charting.data.PieEntry
 import com.santos.jukebox.R
-import com.santos.jukebox.client.data.GraphMusic
-import com.santos.jukebox.establishment.data.MusicEstablishmentResponse
-import com.santos.jukebox.establishment.data.RegisterMusicEstablishment
-import com.santos.jukebox.establishment.ui.state.EventListMusic
 import com.santos.jukebox.establishment.ui.state.StateGraph
-import com.santos.jukebox.establishment.ui.state.StateListMusic
 import com.santos.jukebox.establishment.useCase.GraphUseCase
 
 internal class GraphViewModel(
@@ -39,7 +34,10 @@ internal class GraphViewModel(
                     notifyScreen(StateGraph.SuccessGraphEmpty)
                 } else {
                     notifyScreen(StateGraph.SuccessGraph(it.topTypes.map { graph ->
-                        ChartData(graph.name, graph.percentage.toFloat())
+                        PieEntry(
+                            graph.percentage,
+                            graph.name
+                        )
                     }))
                 }
             },

@@ -8,6 +8,11 @@ data class MusicResponse(
     val musics: MutableList<Music> = mutableListOf(),
 )
 
+data class MusicCount(
+    var music: Music,
+    var count: Int
+)
+
 @Parcelize
 data class Music(
     var id: String? = null,
