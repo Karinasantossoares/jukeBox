@@ -16,5 +16,10 @@ class GraphUseCase(
         error: (Throwable) -> Unit,
     ) = repository.findAllHistory(success, error)
 
+    fun deleteAll(
+        success: () -> Unit,
+        error: (Throwable) -> Unit
+    ) =repository.deleteAll(success, error)
+
 
 }

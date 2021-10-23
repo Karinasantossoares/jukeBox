@@ -61,4 +61,12 @@
     <string name="message_send_error">Poxa, não conseguir enviar sua sugestão.Tente novamente mais tarde</string>
     <string name="message_error_get_suggestion">Erro ao trazer as sugestões dos clientes. Tente novamente mais tarde</string>
     <string name="text_graph">Estilos musicais</string>
+    <string name="empty_type_musics_graph">Sem estilos musicais ainda.</string>
+    <string name="empty_type_musics_top_musics">Nenhuma música adicionada ainda</string>
+    <string name="clear_statistics">Limpar estatísticas</string>
+    <string name="message_delete_all_statistics">Tem certeza que deseja limpar as estatísticas atuais?</string>
+    <string name="error_delete_message_graph">Não foi possível deletar as estatísticas atuais, por favor, tente novamente mais tarde.</string>
+    <string name="success_delete_message_graph">Estatísticas limpa com sucesso!</string>
+    <string name="requested_music_text_client">Sugestão de nova música</string>
+    <string name="recommended_text">Músicas recomendadas pelo público</string>
 </resources>

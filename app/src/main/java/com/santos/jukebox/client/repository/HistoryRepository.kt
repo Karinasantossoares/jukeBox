@@ -24,6 +24,10 @@ class HistoryRepository(
         )
     }
 
+    fun deleteAll(success: () -> Unit, error: (Throwable) -> Unit) {
+        firebase.deleteAll(success, error)
+    }
+
     private fun getTop10Musics(musicList: List<Music>): List<Music> {
         val topMusics: MutableList<MusicCount> = mutableListOf()
 

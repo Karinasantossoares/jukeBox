@@ -5,6 +5,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
 import com.santos.jukebox.client.data.Music
+import com.santos.jukebox.client.data.TopMusicsResponse
 import com.santos.jukebox.establishment.data.MusicEstablishmentResponse
 
 class HistoryFirebase(
@@ -40,6 +41,20 @@ class HistoryFirebase(
                 error.invoke(errorFirebase.toException())
             }
         })
+    }
+
+    fun deleteAll(
+        success: () -> Unit,
+        error: (Throwable) -> Unit
+    ) {
+        database
+            .setValue(null)
+            .addOnCompleteListener {
+                success.invoke()
+            }
+            .addOnFailureListener {
+                error.invoke(it)
+            }
     }
 
     companion object {

@@ -9,7 +9,7 @@ import com.santos.jukebox.establishment.ui.state.StateGraph
 import com.santos.jukebox.establishment.useCase.GraphUseCase
 
 internal class GraphViewModel(
-    private val useCaseMusic: GraphUseCase,
+    private val graphUseCase: GraphUseCase,
 ) : ViewModel() {
 
     private var _stateLiveData = MutableLiveData<StateGraph>()
@@ -22,7 +22,7 @@ internal class GraphViewModel(
 
     private fun findAllHistory() {
         _stateLiveData.value = StateGraph.Loading
-        useCaseMusic.findAllHistory(
+        graphUseCase.findAllHistory(
             success = {
                 if (it.top10Musics.isEmpty()) {
                     notifyScreen(StateGraph.SuccessTopMusicsEmpty)
@@ -43,6 +43,17 @@ internal class GraphViewModel(
             },
             error = {
                 notifyScreen(StateGraph.ShowMessageId(R.string.error_message_graph))
+            }
+        )
+    }
+
+    fun clearAll() {
+        graphUseCase.deleteAll(
+            success = {
+                notifyScreen(StateGraph.ShowMessageId(R.string.success_delete_message_graph))
+            },
+            error = {
+                notifyScreen(StateGraph.ShowMessageId(R.string.error_delete_message_graph))
             }
         )
     }
