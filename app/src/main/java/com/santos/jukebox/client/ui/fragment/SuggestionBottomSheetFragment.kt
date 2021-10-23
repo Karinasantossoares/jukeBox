@@ -4,8 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.EditorInfo
-import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.isVisible
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -15,7 +13,6 @@ import com.santos.jukebox.client.ui.state.StateSuggestion
 import com.santos.jukebox.client.viewmodel.SuggestionViewModel
 import com.santos.jukebox.databinding.FragmentBottomSheetSuggestionBinding
 import org.koin.android.viewmodel.ext.android.sharedViewModel
-import org.koin.android.viewmodel.ext.android.viewModel
 
 
 class SuggestionBottomSheetFragment : BottomSheetDialogFragment() {
@@ -44,14 +41,16 @@ class SuggestionBottomSheetFragment : BottomSheetDialogFragment() {
     private fun setupObservables() {
         viewModel.stateLiveData.observe(viewLifecycleOwner, {
             when (it) {
-                is StateSuggestion.Loading -> binding.pbLoad.isVisible = true
+                is StateSuggestion.Loading -> {
+                    // binding.pbLoad.isVisible = true
+                }
                 is StateSuggestion.ShowMessage -> {
                     Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
                     binding.pbLoad.isVisible = false
                 }
                 is StateSuggestion.SuccessSuggestionMusic -> {
                     dialog?.dismiss()
-                    binding.btnSend.setText("")
+                    binding.btnSend.text = ""
                 }
             }
         })
