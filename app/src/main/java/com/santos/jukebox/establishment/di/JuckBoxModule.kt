@@ -1,8 +1,5 @@
 package com.santos.jukebox.establishment.di
 
-import android.content.Context
-import com.google.firebase.database.FirebaseDatabase
-import com.santos.jukebox.client.persistence.AppPreferences
 import com.santos.jukebox.establishment.remote.FirebaseMusic
 import com.santos.jukebox.establishment.remote.FirebaseQueueMusic
 import com.santos.jukebox.establishment.remote.FirebaseTypeMusic
@@ -20,7 +17,6 @@ import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val modulesEstablishment = module {
-    single { FirebaseDatabase.getInstance().reference }
     single { FirebaseMusic(get()) }
     single { FirebaseQueueMusic(get()) }
     single { FirebaseTypeMusic(get()) }
@@ -28,13 +24,9 @@ val modulesEstablishment = module {
     single { TypeMusicRepository(get()) }
     single { MusicUseCase(get(), get()) }
     single { MusicQueueUseCase(get()) }
-    single { RegisterTypeMusicUseCase(androidContext(), get()) }
-    viewModel { RegisterMusicViewModel(get(), get(), androidContext(), get()) }
+    single { RegisterTypeMusicUseCase(get(), get()) }
+    viewModel { RegisterMusicViewModel(get(), get(),get()) }
     viewModel { ManagerMusicViewModel(get()) }
     viewModel { RegisterTypeMusicViewModel(get()) }
     viewModel { QueueMusicViewModel(get()) }
-    single {
-        androidContext().getSharedPreferences(AppPreferences.NAME, Context.MODE_PRIVATE)
-    }
-    single { AppPreferences(get()) }
 }

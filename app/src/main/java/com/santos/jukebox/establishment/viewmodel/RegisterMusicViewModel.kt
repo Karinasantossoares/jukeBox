@@ -5,7 +5,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.santos.jukebox.R
-import com.santos.jukebox.client.persistence.AppPreferences
 import com.santos.jukebox.establishment.data.RegisterMusicEstablishment
 import com.santos.jukebox.establishment.ui.action.EventRegisterMusic
 import com.santos.jukebox.establishment.ui.state.StateRegisterMusic
@@ -15,8 +14,7 @@ import com.santos.jukebox.establishment.useCase.RegisterTypeMusicUseCase
 internal class RegisterMusicViewModel(
     private val useCaseMusic: MusicUseCase,
     private val useCaseTypeMusic: RegisterTypeMusicUseCase,
-    private val context: Context,
-    private val preferences: AppPreferences
+    private val context: Context
 ) : ViewModel() {
 
     private var _stateLiveData = MutableLiveData<StateRegisterMusic>()

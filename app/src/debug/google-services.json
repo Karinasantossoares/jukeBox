@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "779515831519",
+    "project_id": "jukebox-dev-61efa",
+    "storage_bucket": "jukebox-dev-61efa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:779515831519:android:6b9e06d89691072f77356a",
+        "android_client_info": {
+          "package_name": "com.santos.jukebox.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "779515831519-ub8k23ul3tjnhmdjh68pds2agsv026lh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRbLb8UKevAWxVEyri-dIbIDDMG5OspgU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "779515831519-ub8k23ul3tjnhmdjh68pds2agsv026lh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

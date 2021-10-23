@@ -23,6 +23,7 @@ class ClientUseCase(
     fun addMusicQueue(
         isChecked: Boolean,
         music: Music,
+
         success: (String) -> Unit,
         error: (Exception) -> Unit
     ) {

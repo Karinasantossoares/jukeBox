@@ -49,4 +49,5 @@
     <string name="message_music_add">Adicionada a fila de pedidos</string>
     <string name="text_music_visibility">Deixar música visível para o cliente ?</string>
     <string name="nothing_musics">Nenhuma música encontrada</string>
+    <string name="text_message_client">Digite aqui uma mensagem para (Opicional)</string>
 </resources>

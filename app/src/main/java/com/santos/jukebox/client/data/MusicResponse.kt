@@ -13,6 +13,7 @@ data class Music(
     var id: String? = null,
     val title: String = "",
     val author: String = "",
+    val requestName: String? = null,
     val types: List<String> = listOf(),
     val visible: Boolean = true
 ) : Parcelable

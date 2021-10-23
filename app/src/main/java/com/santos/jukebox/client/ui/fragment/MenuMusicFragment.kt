@@ -100,6 +100,7 @@ class MenuMusicFragment : Fragment() {
 
         binding.nameMusic.text = music.title
         binding.subtitleAuthor.text = music.author
+        binding.requestNameText.text.toString()
         binding.btnClose.setOnClickListener {
             bottomSheetDialog.dismiss()
         }

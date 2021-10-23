@@ -1,6 +1,7 @@
 package com.santos.jukebox
 
 import androidx.multidex.MultiDexApplication
+import com.santos.jukebox.base.di.baseModule
 import com.santos.jukebox.client.di.modulesClient
 import com.santos.jukebox.establishment.di.modulesEstablishment
 import org.koin.android.ext.koin.androidContext
@@ -11,7 +12,7 @@ class BaseApplication : MultiDexApplication() {
         super.onCreate()
         startKoin {
             androidContext(this@BaseApplication)
-            modules(modulesEstablishment, modulesClient)
+            modules(baseModule, modulesEstablishment, modulesClient)
         }
     }
 }
