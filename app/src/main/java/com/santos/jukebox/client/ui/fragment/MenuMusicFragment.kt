@@ -65,16 +65,26 @@ class MenuMusicFragment : Fragment() {
     private fun setupObservables() {
         viewModel.stateLiveData.observe(viewLifecycleOwner, {
             when (it) {
-                is StateClient.Loading -> binding.pbLoad.isVisible = true
+                is StateClient.Loading -> {
+                    binding.pbLoad.isVisible = true
+                    binding.tvEmptyMusics.isVisible = false
+                }
 
                 is StateClient.ShowMessage -> {
                     Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
                     binding.pbLoad.isVisible = false
                 }
                 is StateClient.SuccessListMusic -> {
+                    binding.recyclerSection.isVisible = true
+                    binding.tvEmptyMusics.isVisible = false
                     adapterMusic.listMusic = it.listMusic
                     binding.recyclerSection.adapter = adapterMusic
                     binding.pbLoad.isVisible = false
+                }
+                is StateClient.SuccessEmptyList -> {
+                    binding.recyclerSection.isVisible = false
+                    binding.pbLoad.isVisible = false
+                    binding.tvEmptyMusics.isVisible = true
                 }
             }
         })

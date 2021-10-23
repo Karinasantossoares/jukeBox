@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -48,15 +49,27 @@ class MusicsManagerFragment : Fragment() {
         viewModel.stateLiveData.observe(viewLifecycleOwner) {
             when (it) {
                 StateListMusic.Loading -> {
+                    binding.tvEmptyMusics.isVisible = false
                     binding.pbLoad.isVisible = true
                 }
                 is StateListMusic.ShowMessage -> {
                     binding.pbLoad.isVisible = false
 
                 }
+                is StateListMusic.ShowMessageId -> {
+                    Toast.makeText(requireContext(), getString(it.idMusic), Toast.LENGTH_SHORT).show()
+
+                }
                 is StateListMusic.SuccessListMusic -> {
+                    binding.recyclerSection.isVisible = true
                     binding.pbLoad.isVisible = false
+                    binding.tvEmptyMusics.isVisible = false
                     adapter.listMusic = it.musics
+                }
+                StateListMusic.SuccessEmptyList -> {
+                    binding.pbLoad.isVisible = false
+                    binding.tvEmptyMusics.isVisible = true
+                    binding.recyclerSection.isVisible = false
                 }
             }
         }

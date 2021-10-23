@@ -33,7 +33,7 @@ internal class ManagerMusicViewModel(
         useCaseMusic.findAll(
             success = {
                 this.currentTypes = it
-                _stateLiveData.value = StateListMusic.SuccessListMusic(it)
+                showListMusics(it)
             },
             error = {
                 it.localizedMessage?.let { error ->
@@ -69,8 +69,7 @@ internal class ManagerMusicViewModel(
                 }.toMutableList()
             )
         }?.filter { it.musics.isNotEmpty() }?.let {
-            _stateLiveData.value =
-                StateListMusic.SuccessListMusic(it)
+            showListMusics(it)
         }
     }
 
@@ -80,6 +79,16 @@ internal class ManagerMusicViewModel(
 
     fun tapOnDelete(music: RegisterMusicEstablishment) {
         _actionLiveData.value = EventListMusic.DeleteMusic(music)
+    }
+
+    private fun showListMusics(musics: List<MusicEstablishmentResponse>) {
+        if (musics.isEmpty()) {
+            _stateLiveData.value =
+                StateListMusic.SuccessEmptyList
+        } else {
+            _stateLiveData.value =
+                StateListMusic.SuccessListMusic(musics)
+        }
     }
 
 }

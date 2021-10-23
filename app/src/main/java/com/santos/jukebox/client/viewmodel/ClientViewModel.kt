@@ -28,7 +28,7 @@ class ClientViewModel(private val useCase: ClientUseCase) : ViewModel() {
         useCase.getVisibleMusic(
             success = {
                 this.currentTypes = it
-                notifyLiveData(StateClient.SuccessListMusic(it))
+                showListClient(it)
             },
             error = {
                 notifyLiveData(StateClient.ShowMessage(it.localizedMessage))
@@ -37,17 +37,24 @@ class ClientViewModel(private val useCase: ClientUseCase) : ViewModel() {
     }
 
     fun filterResults(text: String) {
-        val listFiltered = currentTypes?.map {
+        currentTypes?.map {
             return@map MusicResponse(
                 type = it.type,
                 musics = it.musics.filter { music ->
                     music.title.lowercase().contains(text.lowercase())
                 }.toMutableList()
             )
-        }?.filter { it.musics.isNotEmpty() }
+        }?.filter { it.musics.isNotEmpty() }?.let { listFiltered ->
+            showListClient(listFiltered)
+        }
 
-        listFiltered?.let {
-            notifyLiveData(StateClient.SuccessListMusic(it))
+    }
+
+    private fun showListClient(list: List<MusicResponse>) {
+        if (list.isEmpty()) {
+            notifyLiveData(StateClient.SuccessEmptyList)
+        } else {
+            notifyLiveData(StateClient.SuccessListMusic(list))
         }
     }
 

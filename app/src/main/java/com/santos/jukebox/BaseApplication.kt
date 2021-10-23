@@ -1,12 +1,12 @@
 package com.santos.jukebox
 
-import android.app.Application
+import androidx.multidex.MultiDexApplication
 import com.santos.jukebox.client.di.modulesClient
 import com.santos.jukebox.establishment.di.modulesEstablishment
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
-class BaseApplication : Application() {
+class BaseApplication : MultiDexApplication() {
     override fun onCreate() {
         super.onCreate()
         startKoin {
