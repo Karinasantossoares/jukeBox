@@ -69,6 +69,7 @@ class ClientViewModel(private val useCase: ClientUseCase) : ViewModel() {
             isChecked = selectedMusic,
             music = music,
             success = {
+                notifyLiveData(StateClient.SuccessRequestedMusic)
                 notifyLiveData(StateClient.ShowMessage(it))
                 useCase.addMusicHistory(music)
             },

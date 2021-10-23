@@ -49,5 +49,11 @@
     <string name="message_music_add">Adicionada a fila de pedidos</string>
     <string name="text_music_visibility">Deixar música visível para o cliente ?</string>
     <string name="nothing_musics">Nenhuma música encontrada</string>
-    <string name="text_message_client">Digite aqui uma mensagem para (Opicional)</string>
+    <string name="text_message_client">Seu nome (Opcional)</string>
+    <string name="text_request_person">Quem pediu : %1s</string>
+    <string name="text_suggestion">Escreva aqui sua sugestão de música</string>
+    <string name="text_send">Enviar</string>
+    <string name="message_send_success">Pronto, enviamos sua sugestão de música</string>
+    <string name="message_send_error">Poxa, não conseguir enviar sua sugestão.Tente novamente mais tarde</string>
+    <string name="message_error_get_suggestion">Erro ao trazer as sugestões dos clientes. Tente novamente mais tarde</string>
 </resources>

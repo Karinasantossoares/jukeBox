@@ -3,11 +3,9 @@ package com.santos.jukebox.establishment.ui.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.santos.jukebox.R
-import com.santos.jukebox.client.data.Music
-import com.santos.jukebox.client.ui.adapter.viewholder.CategoryViewHolder
-import com.santos.jukebox.databinding.ItemCategoryMusicBinding
 import com.santos.jukebox.databinding.ItemQueueMusicBinding
 import com.santos.jukebox.establishment.data.RegisterMusicEstablishment
 
@@ -50,6 +48,12 @@ class ItemQueueMusicAdapter : RecyclerView.Adapter<ItemQueueMusicAdapter.ItemMus
             binding.tvNameMusic.text = music.title
             binding.tvAuthorMusic.text = music.author
             binding.rvListTypes.adapter = TypeMusicAdapter(music.types)
+            music.requestName?.run {
+                binding.textViewRequestingPerson.text =
+                    binding.root.context.getString(R.string.text_request_person, music.requestName)
+            } ?: run {
+                binding.textViewRequestingPerson.isVisible = false
+            }
         }
 
     }
