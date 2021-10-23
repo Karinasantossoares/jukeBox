@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_to_graph"
             app:destination="@id/graphFragment" />
+        <action
+            android:id="@+id/action_to_recommended"
+            app:destination="@id/recommendedMusicFragment" />
     </fragment>
 
 
@@ -53,4 +56,9 @@
         tools:layout="@layout/fragment_graph"
         android:name="com.santos.jukebox.establishment.ui.fragment.GraphFragment"
         android:label="GraphFragment" />
+    <fragment
+        android:id="@+id/recommendedMusicFragment"
+        tools:layout="@layout/fragment_recommended_music"
+        android:name="com.santos.jukebox.establishment.ui.fragment.RecommendedMusicFragment"
+        android:label="RecommendedMusicFragment" />
 </navigation>

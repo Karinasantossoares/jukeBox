@@ -17,7 +17,11 @@ class SuggestionFirebase(
         error: (Exception) -> Unit,
         suggestionResponse: SuggestionResponse
     ) {
-        database.setValue(suggestionResponse)
+        val nextId = database.push().key
+        suggestionResponse.id = nextId
+        database
+            .child(nextId.toString())
+            .setValue(suggestionResponse)
             .addOnCompleteListener {
                 success.invoke()
             }
@@ -26,6 +30,7 @@ class SuggestionFirebase(
             }
     }
 
+    
     fun getAllSuggestionMusic(
         success: (List<SuggestionResponse>) -> Unit,
         error: (Exception) -> Unit,

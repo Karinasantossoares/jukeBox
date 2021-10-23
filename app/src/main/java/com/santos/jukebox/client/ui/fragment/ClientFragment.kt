@@ -67,7 +67,7 @@ class ClientFragment : Fragment() {
 
     private fun setupListeners() {
         binding.btnSuggestionMusic.setOnClickListener {
-            findNavController().navigate(R.id.action_menuFragment_to_suggestionFragment)
+            SuggestionBottomSheetFragment.newInstance().show(childFragmentManager, "client")
         }
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
             androidx.appcompat.widget.SearchView.OnQueryTextListener {

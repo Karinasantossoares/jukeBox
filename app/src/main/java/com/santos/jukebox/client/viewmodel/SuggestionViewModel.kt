@@ -27,12 +27,12 @@ class SuggestionViewModel(
         notifyLiveData(StateSuggestion.Loading)
         useCase.getAllSuggestionMusic(
             success = {
-                _stateLiveData.postValue(
+                notifyLiveData(
                     StateSuggestion.SuccessListMusic(it)
                 )
             },
             error = {
-                _stateLiveData.postValue(
+                notifyLiveData(
                     StateSuggestion.ShowMessage(it.localizedMessage)
                 )
             }
@@ -42,12 +42,13 @@ class SuggestionViewModel(
     fun addSuggestionMusic(suggestion: SuggestionResponse) {
         useCase.addSuggestionMusic(
             success = {
-                _stateLiveData.postValue(
+                notifyLiveData(
                     StateSuggestion.ShowMessage(it)
                 )
+                notifyLiveData(StateSuggestion.SuccessSuggestionMusic)
             },
             error = {
-                _stateLiveData.postValue(
+                notifyLiveData(
                     StateSuggestion.ShowMessage(it.localizedMessage)
                 )
             },
