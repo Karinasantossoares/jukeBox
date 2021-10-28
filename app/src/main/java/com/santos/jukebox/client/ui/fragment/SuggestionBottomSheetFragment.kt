@@ -49,7 +49,6 @@ class SuggestionBottomSheetFragment : BottomSheetDialogFragment() {
                     binding.pbLoad.isVisible = false
                 }
                 is StateSuggestion.SuccessSuggestionMusic -> {
-                    dialog?.dismiss()
                     binding.btnSend.text = ""
                 }
             }

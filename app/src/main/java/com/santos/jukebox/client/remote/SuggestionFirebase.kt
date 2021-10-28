@@ -30,6 +30,21 @@ class SuggestionFirebase(
             }
     }
 
+    fun deleteRecommendedMusic(
+        success: () -> Unit,
+        error: (Exception) -> Unit,
+        idMusic :String,
+    ){
+        database.child(idMusic)
+            .removeValue()
+            .addOnSuccessListener {
+                success.invoke()
+            }
+            .addOnFailureListener {
+                error.invoke(it)
+            }
+    }
+
     
     fun getAllSuggestionMusic(
         success: (List<SuggestionResponse>) -> Unit,

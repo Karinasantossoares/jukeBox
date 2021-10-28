@@ -19,26 +19,6 @@ class SuggestionViewModel(
         _stateLiveData.value = liveData
     }
 
-    init {
-        getAllSuggestionMusic()
-    }
-
-    private fun getAllSuggestionMusic() {
-        notifyLiveData(StateSuggestion.Loading)
-        useCase.getAllSuggestionMusic(
-            success = {
-                notifyLiveData(
-                    StateSuggestion.SuccessListMusic(it)
-                )
-            },
-            error = {
-                notifyLiveData(
-                    StateSuggestion.ShowMessage(it.localizedMessage)
-                )
-            }
-        )
-    }
-
     fun addSuggestionMusic(suggestion: SuggestionResponse) {
         useCase.addSuggestionMusic(
             success = {

@@ -7,18 +7,20 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import com.santos.jukebox.client.ui.state.StateSuggestion
-import com.santos.jukebox.client.viewmodel.SuggestionViewModel
+import com.santos.jukebox.client.ui.state.StateRecommended
 import com.santos.jukebox.databinding.FragmentRecommendedMusicBinding
 import com.santos.jukebox.establishment.ui.adapter.RecommendedMusicAdapter
+import com.santos.jukebox.establishment.viewmodel.RecommendedMusicViewModel
 import org.koin.android.viewmodel.ext.android.sharedViewModel
 
 class RecommendedMusicFragment : Fragment() {
     private lateinit var binding: FragmentRecommendedMusicBinding
-    private val viewModelRegister:
-            SuggestionViewModel by sharedViewModel()
+    private val viewModelRecommendedMusic:
+            RecommendedMusicViewModel by sharedViewModel()
 
-    private val adapter by lazy { RecommendedMusicAdapter() }
+    private val adapter by lazy {
+        RecommendedMusicAdapter()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,23 +32,25 @@ class RecommendedMusicFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        setupListener()
         setupObservables()
-        binding.recyclerRecommended.adapter = adapter
     }
 
 
     private fun setupObservables() {
-        viewModelRegister.stateLiveData.observe(viewLifecycleOwner, {
+        viewModelRecommendedMusic.stateLiveData.observe(viewLifecycleOwner, {
             when (it) {
-                StateSuggestion.Loading -> {
+                StateRecommended.Loading -> {
                     binding.pbLoad.isVisible = true
                 }
-                is StateSuggestion.ShowMessage -> {
+                is StateRecommended.ShowMessage -> {
                     Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
                     binding.pbLoad.isVisible = false
 
                 }
-                is StateSuggestion.SuccessListMusic -> {
+                is StateRecommended.SuccessListMusic -> {
+                    binding.recyclerRecommended.adapter = adapter
                     binding.pbLoad.isVisible = false
                     adapter.listRecommendedMusic = it.listMusic
 
@@ -55,5 +59,9 @@ class RecommendedMusicFragment : Fragment() {
         })
     }
 
-
+    private fun setupListener() {
+        adapter.listenerRemoveMusic = {
+            it.id?.let { it1 -> viewModelRecommendedMusic.deleteRecommendedMusic(it1) }
+        }
+    }
 }

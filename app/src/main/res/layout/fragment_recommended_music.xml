@@ -22,7 +22,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerRecommended"
             android:layout_width="match_parent"
@@ -34,9 +33,10 @@
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintTop_toBottomOf="@id/titleRecommendedText"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:spanCount="3"
-            tools:itemCount="3"
-            tools:listitem="@layout/item_category_music" />
+            tools:itemCount="5"
+            tools:listitem="@layout/item_recommended_music" />
 
         <ProgressBar
             android:id="@+id/pbLoad"

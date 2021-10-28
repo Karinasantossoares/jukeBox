@@ -26,23 +26,4 @@ class SuggestionUseCase(
             suggestionResponse
         )
     }
-
-
-    fun getAllSuggestionMusic(
-        success: (List<SuggestionResponse>) -> Unit,
-        error: (Exception) -> Unit,
-    ) {
-        repository.getAllSuggestionMusic(
-            success = {
-                success.invoke(it)
-            },
-            error = {
-                error.invoke(
-                    Exception(
-                        context.getString(R.string.message_error_get_suggestion)
-                    )
-                )
-            }
-        )
-    }
 }
