@@ -10,6 +10,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.santos.jukebox.R
+import com.santos.jukebox.client.data.SuggestionResponse
 import com.santos.jukebox.databinding.FragmentRegisterMusicBinding
 import com.santos.jukebox.establishment.data.RegisterMusicEstablishment
 import com.santos.jukebox.establishment.ui.action.EventRegisterMusic
@@ -40,6 +41,9 @@ class RegisterMusicFragment : Fragment() {
         binding.recycleTypesMusic.adapter = adapter
         arguments?.getParcelable<RegisterMusicEstablishment>(EXTRA_KEY_MUSIC)?.let {
             viewModelRegister.setEditMusic(it)
+        }
+        arguments?.getParcelable<SuggestionResponse>(EXTRA_KEY_NAME_MUSIC)?.let {
+            viewModelRegister.setRegisterRecommnededMusic(it)
         }
         setupListeners()
         setupObservables()
@@ -94,6 +98,10 @@ class RegisterMusicFragment : Fragment() {
                     binding.etAuthor.setText(it.newMusic.author)
                     adapter.updateList(it.allTypeMusics, it.newMusic.types)
                 }
+                it.isRegistrationRecommendedMusic -> {
+                    binding.checkBox.isChecked = it.newMusic.visible
+                    binding.etName.setText(it.newMusic.title)
+                }
             }
         })
 
@@ -120,6 +128,7 @@ class RegisterMusicFragment : Fragment() {
 
     companion object {
         const val EXTRA_KEY_MUSIC = "EXTRA_KEY_MUSIC"
+        const val EXTRA_KEY_NAME_MUSIC = "EXTRA_KEY_NAME_MUSIC"
     }
 
 }

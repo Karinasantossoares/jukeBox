@@ -33,7 +33,7 @@ val modulesEstablishment = module {
     single { MusicQueueUseCase(get()) }
     single { GraphUseCase(get()) }
     single { RegisterTypeMusicUseCase(get(), get()) }
-    viewModel { RegisterMusicViewModel(get(), get(),get()) }
+    viewModel { RegisterMusicViewModel(get(), get(), get(), get()) }
     viewModel { ManagerMusicViewModel(get()) }
     viewModel { RegisterTypeMusicViewModel(get()) }
     viewModel { QueueMusicViewModel(get()) }

@@ -25,6 +25,6 @@
 
     <style name="BottomSheetTheme" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/Theme.MaterialComponents.Light.BottomSheetDialog</item>
-        <item name="behavior_draggable">false</item>
+        <item name="behavior_draggable">true</item>
     </style>
 </resources>

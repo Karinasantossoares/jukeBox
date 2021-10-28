@@ -1,22 +1,25 @@
 package com.santos.jukebox.client.ui.fragment
 
+import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.isVisible
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.santos.jukebox.R
 import com.santos.jukebox.client.data.SuggestionResponse
 import com.santos.jukebox.client.ui.state.StateSuggestion
 import com.santos.jukebox.client.viewmodel.SuggestionViewModel
-import com.santos.jukebox.databinding.FragmentBottomSheetSuggestionBinding
+import com.santos.jukebox.databinding.BottomSheetSuggestionBinding
 import org.koin.android.viewmodel.ext.android.viewModel
 
 
 class SuggestionBottomSheetFragment : BottomSheetDialogFragment() {
-    private lateinit var binding: FragmentBottomSheetSuggestionBinding
+    private lateinit var binding: BottomSheetSuggestionBinding
     private val viewModel: SuggestionViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,7 +31,7 @@ class SuggestionBottomSheetFragment : BottomSheetDialogFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentBottomSheetSuggestionBinding.inflate(inflater, container, false)
+        binding = BottomSheetSuggestionBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -36,6 +39,15 @@ class SuggestionBottomSheetFragment : BottomSheetDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
         setupListeners()
         setupObservables()
+    }
+
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        val dialog = BottomSheetDialog(requireContext(), theme)
+        dialog.behavior.state = BottomSheetBehavior.STATE_EXPANDED
+        dialog.behavior.skipCollapsed = true
+        dialog.behavior.isHideable = true
+        dialog.behavior.isDraggable = true
+        return dialog
     }
 
     private fun setupObservables() {
@@ -49,7 +61,7 @@ class SuggestionBottomSheetFragment : BottomSheetDialogFragment() {
                     binding.pbLoad.isVisible = false
                 }
                 is StateSuggestion.SuccessSuggestionMusic -> {
-                    binding.btnSend.text = ""
+                   dismiss()
                 }
             }
         })
@@ -59,7 +71,7 @@ class SuggestionBottomSheetFragment : BottomSheetDialogFragment() {
         binding.btnSend.setOnClickListener {
             val suggestionText = binding.edtSuggestion.text.toString()
             val suggestion = SuggestionResponse(
-                text = suggestionText
+                nameMusic = suggestionText
             )
             viewModel.addSuggestionMusic(suggestion)
         }

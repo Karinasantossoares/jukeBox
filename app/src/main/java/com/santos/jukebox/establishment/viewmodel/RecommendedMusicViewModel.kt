@@ -28,12 +28,17 @@ class RecommendedMusicViewModel(
         useCase.getAllSuggestionMusic(
             success = {
                 notifyLiveData(
-                    StateRecommended.SuccessListMusic(it)
+                    if (it.isEmpty()) {
+                        StateRecommended.EmptySuccess
+                    } else {
+                        StateRecommended.SuccessListMusic(it)
+                    }
+
                 )
             },
             error = {
                 notifyLiveData(
-                    StateRecommended.ShowMessage(it.localizedMessage)
+                    StateRecommended.ShowMessage(it.localizedMessage?:"")
                 )
             }
         )

@@ -37,20 +37,7 @@ class ClientFragment : Fragment() {
             setContentView(
                 dialogMusicBinding.root
             )
-        }
-    }
 
-    private val dialogSuggestionBinding by lazy {
-        BottomDialogMusicBinding.bind(
-            layoutInflater.inflate(R.layout.bottom_sheet_suggestion, null)
-        )
-    }
-
-    private val dialogSuggestionBottomSheet by lazy {
-        BottomSheetDialog(requireContext(), R.style.BottomSheetTheme).apply {
-            setContentView(
-                dialogSuggestionBinding.root
-            )
         }
     }
 
@@ -151,10 +138,6 @@ class ClientFragment : Fragment() {
             actionAddQueueMusic(music)
         }
         dialogMusicBottomSheet.show()
-    }
-
-    private fun configBottomSheetRecommendedMusic(){
-        dialogSuggestionBinding.btnAddQueue
     }
 
     private fun actionAddQueueMusic(music: Music) {

@@ -6,13 +6,14 @@
         <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/drawable/ic_clear.xml" value="0.21944444444444444" />
         <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/drawable/ic_graph.xml" value="0.225" />
         <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/layout/bottom_dialog_music.xml" value="0.2" />
-        <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/layout/bottom_sheet_suggestion.xml" value="0.1802536231884058" />
+        <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/layout/bottom_sheet_suggestion.xml" value="0.2" />
         <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/layout/fragment_bottom_sheet_suggestion.xml" value="0.136" />
         <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/layout/fragment_client.xml" value="0.1" />
         <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/layout/fragment_graph.xml" value="0.176" />
         <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/layout/fragment_manager_menu_music.xml" value="0.152" />
-        <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/layout/fragment_recommended_music.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/layout/fragment_recommended_music.xml" value="0.1" />
         <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/layout/item_category_music.xml" value="0.12360688956433637" />
+        <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/layout/item_recommended_music.xml" value="0.4" />
         <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/layout/item_section_music.xml" value="0.12360688956433637" />
         <entry key="..\:/Users/karin/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_list_item_1.xml" value="0.3533496732026144" />
         <entry key="..\:/Users/karin/JukeBox/app/src/main/res/drawable/vector_music_splash.xml" value="0.3527777777777778" />

@@ -5,15 +5,18 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.santos.jukebox.R
+import com.santos.jukebox.client.data.SuggestionResponse
 import com.santos.jukebox.establishment.data.RegisterMusicEstablishment
 import com.santos.jukebox.establishment.ui.action.EventRegisterMusic
 import com.santos.jukebox.establishment.ui.state.StateRegisterMusic
 import com.santos.jukebox.establishment.useCase.MusicUseCase
+import com.santos.jukebox.establishment.useCase.RecommendedUseCase
 import com.santos.jukebox.establishment.useCase.RegisterTypeMusicUseCase
 
 internal class RegisterMusicViewModel(
     private val useCaseMusic: MusicUseCase,
     private val useCaseTypeMusic: RegisterTypeMusicUseCase,
+    private val useCaseSuggestion: RecommendedUseCase,
     private val context: Context
 ) : ViewModel() {
 
@@ -54,18 +57,42 @@ internal class RegisterMusicViewModel(
     ) {
         _stateLiveData.value = _stateLiveData.value?.showLoadingMusics(true)
         _stateLiveData.value = _stateLiveData.value?.newMusic(title, author, types, isVisible)
+
+
         if (stateLiveData.value?.isEditionMusic == false) {
-            saveMusic()
+            saveMusic(stateLiveData.value?.isRegistrationRecommendedMusic == true)
         } else {
             updateMusic()
         }
 
     }
 
-    private fun saveMusic() {
+    private fun saveMusic(isRegistrationRecommendedMusic: Boolean = false) {
         _stateLiveData.value?.newMusic?.let { music ->
             useCaseMusic.saveMusic(
                 music = music,
+                success = {
+                    _stateLiveData.value = _stateLiveData.value?.showLoadingMusics(false)
+                    if (isRegistrationRecommendedMusic) {
+                        deleteRecommendedMusicRegistered()
+                    } else {
+                        _actionLiveData.value = EventRegisterMusic.Success
+                    }
+
+                },
+                error = {
+                    _stateLiveData.value = _stateLiveData.value?.showLoadingMusics(false)
+                    it.localizedMessage?.let { messageError ->
+                        _actionLiveData.value = EventRegisterMusic.ShowMessage(messageError)
+                    }
+                })
+        }
+    }
+
+    private fun deleteRecommendedMusicRegistered() {
+        _stateLiveData.value?.suggestionMusic?.id?.let {
+            useCaseSuggestion.deleteRecommendedMusic(
+                idMusic = it,
                 success = {
                     _stateLiveData.value = _stateLiveData.value?.showLoadingMusics(false)
                     _actionLiveData.value = EventRegisterMusic.Success
@@ -75,7 +102,8 @@ internal class RegisterMusicViewModel(
                     it.localizedMessage?.let { messageError ->
                         _actionLiveData.value = EventRegisterMusic.ShowMessage(messageError)
                     }
-                })
+                }
+            )
         }
     }
 
@@ -127,5 +155,9 @@ internal class RegisterMusicViewModel(
 
     fun setEditMusic(music: RegisterMusicEstablishment) {
         _stateLiveData.value = _stateLiveData.value?.editionMusic(music)
+    }
+
+    fun setRegisterRecommnededMusic(suggestion: SuggestionResponse) {
+        _stateLiveData.value = _stateLiveData.value?.registerRecommnededMusic(suggestion)
     }
 }

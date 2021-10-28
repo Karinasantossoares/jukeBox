@@ -41,7 +41,8 @@ class RecommendedMusicAdapter() :
         private val binding = ItemRecommendedMusicBinding.bind(itemView)
 
         fun bind(music: SuggestionResponse) {
-            binding.textNameMusic.text = music.text
+            binding.textNameMusic.text = music.nameMusic
+            binding.textDate.text = music.formattedDate()
             binding.btnMusicExisisting.setOnClickListener {
                 listenerRemoveMusic?.invoke(music)
             }

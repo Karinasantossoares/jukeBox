@@ -7,5 +7,4 @@ sealed class StateSuggestion {
     object Loading : StateSuggestion()
     data class ShowMessage(val message: String) : StateSuggestion()
     object SuccessSuggestionMusic : StateSuggestion()
-    data class SuccessListMusic(val listMusic: List<SuggestionResponse>) : StateSuggestion()
 }

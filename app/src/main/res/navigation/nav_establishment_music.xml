@@ -36,6 +36,10 @@
             app:argType="com.santos.jukebox.establishment.data.RegisterMusicEstablishment"
             app:nullable="true" />
 
+        <argument
+            android:name="name"
+            app:argType="string"
+            app:nullable="true" />
         <action
             android:id="@+id/to_type_music"
             app:destination="@id/registerTypeMusicFragment" />
@@ -60,5 +64,9 @@
         android:id="@+id/recommendedMusicFragment"
         tools:layout="@layout/fragment_recommended_music"
         android:name="com.santos.jukebox.establishment.ui.fragment.RecommendedMusicFragment"
-        android:label="RecommendedMusicFragment" />
+        android:label="RecommendedMusicFragment" >
+        <action
+            android:id="@+id/action_to_register"
+            app:destination="@id/registerMusicFragment" />
+    </fragment>
 </navigation>
