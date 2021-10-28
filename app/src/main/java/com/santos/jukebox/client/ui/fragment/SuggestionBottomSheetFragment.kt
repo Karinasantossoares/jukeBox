@@ -12,12 +12,12 @@ import com.santos.jukebox.client.data.SuggestionResponse
 import com.santos.jukebox.client.ui.state.StateSuggestion
 import com.santos.jukebox.client.viewmodel.SuggestionViewModel
 import com.santos.jukebox.databinding.FragmentBottomSheetSuggestionBinding
-import org.koin.android.viewmodel.ext.android.sharedViewModel
+import org.koin.android.viewmodel.ext.android.viewModel
 
 
 class SuggestionBottomSheetFragment : BottomSheetDialogFragment() {
     private lateinit var binding: FragmentBottomSheetSuggestionBinding
-    private val viewModel: SuggestionViewModel by sharedViewModel()
+    private val viewModel: SuggestionViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

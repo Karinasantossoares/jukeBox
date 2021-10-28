@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/suggestionFragment"
-        tools:layout="@layout/fragment_bottom_sheet_suggestion"
+        tools:layout="@layout/bottom_sheet_suggestion"
         android:name="com.santos.jukebox.client.ui.fragment.SuggestionBottomSheetFragment"
         android:label="SuggestionFragment" />
 </navigation>

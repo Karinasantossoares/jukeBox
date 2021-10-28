@@ -11,12 +11,12 @@ import com.santos.jukebox.client.ui.state.StateRecommended
 import com.santos.jukebox.databinding.FragmentRecommendedMusicBinding
 import com.santos.jukebox.establishment.ui.adapter.RecommendedMusicAdapter
 import com.santos.jukebox.establishment.viewmodel.RecommendedMusicViewModel
-import org.koin.android.viewmodel.ext.android.sharedViewModel
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class RecommendedMusicFragment : Fragment() {
     private lateinit var binding: FragmentRecommendedMusicBinding
     private val viewModelRecommendedMusic:
-            RecommendedMusicViewModel by sharedViewModel()
+            RecommendedMusicViewModel by viewModel()
 
     private val adapter by lazy {
         RecommendedMusicAdapter()

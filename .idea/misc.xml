@@ -3,6 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/drawable/ic_clear.xml" value="0.21944444444444444" />
+        <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/drawable/ic_graph.xml" value="0.225" />
+        <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/layout/bottom_dialog_music.xml" value="0.2" />
+        <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/layout/bottom_sheet_suggestion.xml" value="0.1802536231884058" />
+        <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/layout/fragment_bottom_sheet_suggestion.xml" value="0.136" />
+        <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/layout/fragment_client.xml" value="0.1" />
+        <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/layout/fragment_graph.xml" value="0.176" />
+        <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/layout/fragment_manager_menu_music.xml" value="0.152" />
+        <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/layout/fragment_recommended_music.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/layout/item_category_music.xml" value="0.12360688956433637" />
+        <entry key="..\:/Users/ACT/AndroidStudioProjects/jukeBox/app/src/main/res/layout/item_section_music.xml" value="0.12360688956433637" />
         <entry key="..\:/Users/karin/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_list_item_1.xml" value="0.3533496732026144" />
         <entry key="..\:/Users/karin/JukeBox/app/src/main/res/drawable/vector_music_splash.xml" value="0.3527777777777778" />
         <entry key="..\:/Users/karin/JukeBox/app/src/main/res/layout/activity_main.xml" value="0.17831813576494426" />
@@ -10,17 +21,13 @@
         <entry key="..\:/Users/karin/Projetos Android Studio/JukeBox/app/src/main/res/drawable/button_shape_music_added.xml" value="0.3828125" />
         <entry key="..\:/Users/karin/Projetos Android Studio/JukeBox/app/src/main/res/drawable/ic_check.xml" value="0.3828125" />
         <entry key="..\:/Users/karin/Projetos Android Studio/JukeBox/app/src/main/res/drawable/ic_logo.xml" value="0.38083333333333336" />
-        <entry key="..\:/Users/karin/Projetos Android Studio/JukeBox/app/src/main/res/layout/activity_establishment.xml" value="0.1875" />
         <entry key="..\:/Users/karin/Projetos Android Studio/JukeBox/app/src/main/res/layout/activity_main.xml" value="0.2222222222222222" />
         <entry key="..\:/Users/karin/Projetos Android Studio/JukeBox/app/src/main/res/layout/bottom_dialog_music.xml" value="0.3459967320261438" />
         <entry key="..\:/Users/karin/Projetos Android Studio/JukeBox/app/src/main/res/layout/fragment_manager_menu_music.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/karin/Projetos Android Studio/JukeBox/app/src/main/res/layout/fragment_menu_music.xml" value="0.3570261437908497" />
         <entry key="..\:/Users/karin/Projetos Android Studio/JukeBox/app/src/main/res/layout/fragment_queue_music.xml" value="0.3570261437908497" />
-        <entry key="..\:/Users/karin/Projetos Android Studio/JukeBox/app/src/main/res/layout/fragment_recommended_music.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/karin/Projetos Android Studio/JukeBox/app/src/main/res/layout/fragment_register_music.xml" value="0.3570261437908497" />
         <entry key="..\:/Users/karin/Projetos Android Studio/JukeBox/app/src/main/res/layout/fragment_register_type_music.xml" value="0.3570261437908497" />
-        <entry key="..\:/Users/karin/Projetos Android Studio/JukeBox/app/src/main/res/layout/item_category_music.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/karin/Projetos Android Studio/JukeBox/app/src/main/res/layout/item_recommended_music.xml" value="0.3386437908496732" />
         <entry key="..\:/Users/karin/Projetos Android Studio/JukeBox/app/src/main/res/layout/item_section_music.xml" value="0.25" />
         <entry key="..\:/Users/karin/Projetos Android Studio/JukeBox/app/src/main/res/layout/item_type_music.xml" value="0.3459967320261438" />
         <entry key="..\:/Users/karin/Projetos Android Studio/JukeBox/app/src/proprietor/res/drawable/button_shape.xml" value="0.43625" />
@@ -40,7 +47,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

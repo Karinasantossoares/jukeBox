@@ -10,7 +10,6 @@ import android.widget.TextView.OnEditorActionListener
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.santos.jukebox.R
 import com.santos.jukebox.client.data.Music
@@ -27,25 +26,38 @@ class ClientFragment : Fragment() {
     private val viewModel:
             ClientViewModel by viewModel()
 
-    private val bindingBottomSheet by lazy {
+    private val dialogMusicBinding by lazy {
         BottomDialogMusicBinding.bind(
             layoutInflater.inflate(R.layout.bottom_dialog_music, null)
         )
     }
 
-    private val bottomSheetDialog by lazy {
+    private val dialogMusicBottomSheet by lazy {
         BottomSheetDialog(requireContext(), R.style.BottomSheetTheme).apply {
             setContentView(
-                bindingBottomSheet.root
+                dialogMusicBinding.root
             )
         }
     }
 
+    private val dialogSuggestionBinding by lazy {
+        BottomDialogMusicBinding.bind(
+            layoutInflater.inflate(R.layout.bottom_sheet_suggestion, null)
+        )
+    }
+
+    private val dialogSuggestionBottomSheet by lazy {
+        BottomSheetDialog(requireContext(), R.style.BottomSheetTheme).apply {
+            setContentView(
+                dialogSuggestionBinding.root
+            )
+        }
+    }
 
     private val adapterMusic by lazy {
         SectionMusicAdapter(
             listener = { music ->
-                configBottomSheatDialog(music)
+                configBottomSheetQueueMusic(music)
             }).apply {
             listMusic
         }
@@ -67,7 +79,7 @@ class ClientFragment : Fragment() {
 
     private fun setupListeners() {
         binding.btnSuggestionMusic.setOnClickListener {
-            SuggestionBottomSheetFragment.newInstance().show(childFragmentManager, "client")
+            SuggestionBottomSheetFragment.newInstance().show(childFragmentManager, null)
         }
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
             androidx.appcompat.widget.SearchView.OnQueryTextListener {
@@ -109,23 +121,23 @@ class ClientFragment : Fragment() {
                     binding.tvEmptyMusics.isVisible = true
                 }
                 StateClient.SuccessRequestedMusic -> {
-                    bottomSheetDialog.dismiss()
-                    bindingBottomSheet.edtRequester.setText("")
+                    dialogMusicBottomSheet.dismiss()
+                    dialogMusicBinding.edtRequester.setText("")
                 }
             }
         })
     }
 
-    private fun configBottomSheatDialog(music: Music) {
+    private fun configBottomSheetQueueMusic(music: Music) {
 
-        bindingBottomSheet.nameMusic.text = music.title
-        bindingBottomSheet.subtitleAuthor.text = music.author
+        dialogMusicBinding.nameMusic.text = music.title
+        dialogMusicBinding.subtitleAuthor.text = music.author
 
-        bindingBottomSheet.btnClose.setOnClickListener {
-            bottomSheetDialog.dismiss()
+        dialogMusicBinding.btnClose.setOnClickListener {
+            dialogMusicBottomSheet.dismiss()
         }
 
-        bindingBottomSheet.edtRequester.setOnEditorActionListener(OnEditorActionListener { v, actionId, event ->
+        dialogMusicBinding.edtRequester.setOnEditorActionListener(OnEditorActionListener { v, actionId, event ->
             if (actionId == EditorInfo.IME_ACTION_DONE
                 || actionId == EditorInfo.IME_ACTION_GO
                 || actionId == EditorInfo.IME_ACTION_NEXT
@@ -135,15 +147,19 @@ class ClientFragment : Fragment() {
             }
             false
         })
-        bindingBottomSheet.btnAddQueue.setOnClickListener {
+        dialogMusicBinding.btnAddQueue.setOnClickListener {
             actionAddQueueMusic(music)
         }
-        bottomSheetDialog.show()
+        dialogMusicBottomSheet.show()
+    }
+
+    private fun configBottomSheetRecommendedMusic(){
+        dialogSuggestionBinding.btnAddQueue
     }
 
     private fun actionAddQueueMusic(music: Music) {
         viewModel.addMusicQueue(true, music.apply {
-            requestName = bindingBottomSheet.edtRequester.text.toString()
+            requestName = dialogMusicBinding.edtRequester.text.toString()
         })
     }
 }
