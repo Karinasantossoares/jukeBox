@@ -78,7 +78,6 @@ internal class RegisterMusicViewModel(
                     } else {
                         _actionLiveData.value = EventRegisterMusic.Success
                     }
-
                 },
                 error = {
                     _stateLiveData.value = _stateLiveData.value?.showLoadingMusics(false)

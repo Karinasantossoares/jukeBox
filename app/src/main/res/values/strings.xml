@@ -70,7 +70,7 @@
     <string name="requested_music_text_client">Sugestão de nova música</string>
     <string name="recommended_text">Músicas recomendadas pelo público</string>
     <string name="tetx_ok_register">Já cadastrei</string>
-    <string name="text_add">Cadastrar nova</string>
+    <string name="text_add">Cadastrar</string>
     <string name="message_error_delete_recommended">Erro ao tentar tirar das músicas recomendadas. Tente novamente</string>
     <string name="message_success_delete_recommended">Pronto, essa música foi retirada da lista de músicas recomendadas</string>
     <string name="sended">Enviado</string>
